@@ -1,233 +1,267 @@
 ﻿const stays = [
   {
     id: "dream-team",
-    name: "Dream Team Królowej Jadwigi",
-    area: "Wyspa Młyńska edge",
+    name: "Dream Team Krolowej Jadwigi",
+    area: "Krolowej Jadwigi / edge of Wyspa Mlynska",
     pricePln: 1389,
-    priceType: "Confirmed",
+    priceType: "Confirmed 3-night total",
     size: 31,
     sleepsComfortably: false,
     locationScore: 5,
     valueScore: 3,
-    notes: "Already booked and in a preferred zone, but it is the tightest family layout in the set.",
+    notes: "Already booked and central, but it is still the tightest layout for 2 adults and 2 children.",
     verdict: "Keep",
+    offerUrl: "",
+    offerText: "Booked already",
     isCurrent: true,
     betterThanCurrent: false,
     kidsPick: false,
     bestLocation: true,
     decisionRank: 99,
-    cardRank: 2,
-    image:
-      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80",
+    cardRank: 99,
+    image: "",
     highlights: ["Confirmed", "Prime walkability", "Smallest footprint"],
-    whyCard: "Safe option if Amy values certainty over extra breathing room."
+    whyCard: "Useful only as the certainty benchmark."
   },
   {
     id: "jezuicka-24",
     name: "Apartament Jezuicka 24",
-    area: "Old Town / Wyspa Młyńska",
-    pricePln: 1240,
-    priceType: "Estimated July total",
+    area: "Old Town / Wyspa Mlynska",
+    pricePln: 708,
+    priceType: "Screened 3-night total from listed rate",
     size: 55,
     sleepsComfortably: true,
     locationScore: 5,
     valueScore: 5,
-    notes: "Best balance of central magic, family space and spend discipline.",
+    notes: "Best all-round move: real family space, old-town feel, and the strongest value screen.",
     verdict: "Upgrade",
+    offerUrl: "https://booking-bydgoszcz.pl/offer/20/Apartament-Jezuicka-24",
+    offerText: "Open offer",
     isCurrent: false,
     betterThanCurrent: true,
     kidsPick: true,
     bestLocation: true,
     decisionRank: 1,
     cardRank: 1,
-    image:
-      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80",
-    highlights: ["55 m²", "Old-town walk", "Budget-friendly upgrade"],
-    whyCard: "More space, same atmosphere, and likely a lower total than the current booking."
+    image: "https://booking-bydgoszcz.pl/images/objects/pictures/large/0/2/256.jpg",
+    highlights: ["55 m2", "Old-town walk", "Lowest-risk switch"],
+    whyCard: "It fixes the space problem without giving up the atmosphere Amy actually wants."
+  },
+  {
+    id: "stary-rynek-34c",
+    name: "Apartament Stary Rynek 3/4C",
+    area: "Old Town core",
+    pricePln: 897,
+    priceType: "Screened 3-night total from listed rate",
+    size: 50,
+    sleepsComfortably: true,
+    locationScore: 5,
+    valueScore: 4,
+    notes: "A stronger old-town upgrade if Amy wants the most central feel without overshooting the current spend.",
+    verdict: "Upgrade",
+    offerUrl: "https://booking-bydgoszcz.pl/offer/33/Apartament-Stary-Rynek-34C",
+    offerText: "Open offer",
+    isCurrent: false,
+    betterThanCurrent: true,
+    kidsPick: true,
+    bestLocation: true,
+    decisionRank: 2,
+    cardRank: 2,
+    image: "https://booking-bydgoszcz.pl/images/objects/pictures/large/3/3/394.jpg",
+    highlights: ["50 m2", "Market-square address", "Strong location premium"],
+    whyCard: "This is the best location-led switch that still looks sensible on price."
   },
   {
     id: "jagiellonska-70",
-    name: "Apartament Jagiellońska 70",
+    name: "Apartament Jagiellonska 70",
     area: "Riverside east / city centre",
-    pricePln: 1050,
-    priceType: "Estimated July total",
+    pricePln: 612,
+    priceType: "Screened 3-night total from listed rate",
     size: 55,
     sleepsComfortably: true,
     locationScore: 4,
     valueScore: 5,
     notes: "The sharpest value play if Amy accepts a slightly less postcard-perfect micro-location.",
     verdict: "Upgrade",
-    isCurrent: false,
-    betterThanCurrent: true,
-    kidsPick: true,
-    bestLocation: false,
-    decisionRank: 2,
-    cardRank: 3,
-    image:
-      "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80",
-    highlights: ["55 m²", "Best value score", "Riverside setting"],
-    whyCard: "Big jump in usable space for materially less money than the booked stay."
-  },
-  {
-    id: "dworcowa-13",
-    name: "Apartament Dworcowa 13",
-    area: "Centre west / Garbary side",
-    pricePln: 1200,
-    priceType: "Estimated July total",
-    size: 52,
-    sleepsComfortably: true,
-    locationScore: 4,
-    valueScore: 4,
-    notes: "Family-friendly size and kitchen setup, with a slightly less charming walk than Jezuicka.",
-    verdict: "Upgrade",
+    offerUrl: "https://booking-bydgoszcz.pl/offer/16/Apartament-Jagiellonska-70",
+    offerText: "Open offer",
     isCurrent: false,
     betterThanCurrent: true,
     kidsPick: true,
     bestLocation: false,
     decisionRank: 3,
-    cardRank: 4,
-    image:
-      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80",
-    highlights: ["52 m²", "Good family fit", "Strong fallback"],
-    whyCard: "Not the prettiest address, but it solves the space problem without overspending."
+    cardRank: 3,
+    image: "https://booking-bydgoszcz.pl/images/objects/pictures/large/6/1/165.jpg",
+    highlights: ["55 m2", "Best value score", "Lower screening cost"],
+    whyCard: "It gives the family much more room for materially less money, with only a small location trade."
   },
   {
-    id: "chwytowo-14",
-    name: "Apartament Chwytowo 14",
-    area: "Garbary fringe",
-    pricePln: 1310,
-    priceType: "Estimated July total",
-    size: 40,
+    id: "dworcowa-13",
+    name: "Apartament Dworcowa 13",
+    area: "Centre west / Garbary side",
+    pricePln: 672,
+    priceType: "Screened 3-night total from listed rate",
+    size: 52,
     sleepsComfortably: true,
     locationScore: 4,
-    valueScore: 4,
-    notes: "Solid middle ground close to Garbary if Amy wants a second-choice neighbourhood.",
-    verdict: "Consider",
+    valueScore: 5,
+    notes: "Very practical fallback: good size, strong value, and still walkable for family sightseeing.",
+    verdict: "Upgrade",
+    offerUrl: "https://booking-bydgoszcz.pl/offer/18/Apartament-Dworcowa-13",
+    offerText: "Open offer",
     isCurrent: false,
     betterThanCurrent: true,
     kidsPick: true,
     bestLocation: false,
     decisionRank: 4,
-    cardRank: 6,
-    image:
-      "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80",
-    highlights: ["Near Garbary", "Balanced spend", "Good compromise"],
-    whyCard: "Worth checking if the very best central options disappear."
-  },
-  {
-    id: "batorego-24c",
-    name: "Apartament Batorego 2/4C",
-    area: "Old Town core",
-    pricePln: 1370,
-    priceType: "Estimated July total",
-    size: 40,
-    sleepsComfortably: true,
-    locationScore: 5,
-    valueScore: 3,
-    notes: "Excellent historic-core address, but only a moderate space gain against the benchmark.",
-    verdict: "Consider",
-    isCurrent: false,
-    betterThanCurrent: false,
-    kidsPick: false,
-    bestLocation: true,
-    decisionRank: 5,
-    cardRank: 7,
-    image:
-      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80",
-    highlights: ["40 m²", "Best location", "Near-current spend"],
-    whyCard: "A location-led choice, not a value-led one."
+    cardRank: 4,
+    image: "https://booking-bydgoszcz.pl/images/objects/pictures/large/8/1/238.jpg",
+    highlights: ["52 m2", "Good fallback", "Strong practical fit"],
+    whyCard: "Not the prettiest address, but it solves the family layout issue cleanly."
   },
   {
     id: "stary-port-115",
     name: "Apartament Stary Port 1/15",
     area: "Prime riverfront",
-    pricePln: 1890,
-    priceType: "Estimated July total",
+    pricePln: 1137,
+    priceType: "Screened 3-night total from listed rate",
     size: 52,
     sleepsComfortably: true,
     locationScore: 5,
-    valueScore: 3,
-    notes: "Beautiful river address and roomy layout, but Amy pays a clear premium for the view.",
-    verdict: "Consider",
+    valueScore: 4,
+    notes: "Best postcard experience in the shortlist, with enough room and a still-defensible price screen.",
+    verdict: "Upgrade",
+    offerUrl: "https://booking-bydgoszcz.pl/offer/26/Apartament-Stary-Port-115",
+    offerText: "Open offer",
     isCurrent: false,
-    betterThanCurrent: false,
+    betterThanCurrent: true,
     kidsPick: true,
     bestLocation: true,
-    decisionRank: 6,
+    decisionRank: 5,
     cardRank: 5,
-    image:
-      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80",
-    highlights: ["52 m²", "River view premium", "Best postcard feel"],
-    whyCard: "This is the location premium pick if Amy is willing to pay for the view."
+    image: "https://booking-bydgoszcz.pl/images/objects/pictures/large/6/2/321.jpg",
+    highlights: ["52 m2", "Riverfront", "Best experience pick"],
+    whyCard: "This is the location premium that still looks credible against the current booking."
   },
   {
-    id: "bohaterow-suite",
-    name: "Bohaterów Kragujewca 6 Suite",
-    area: "Szwederowo alternative",
-    pricePln: 1260,
-    priceType: "Estimated July total",
+    id: "batorego-24c",
+    name: "Apartament Batorego 2/4C",
+    area: "Old Town core",
+    pricePln: 849,
+    priceType: "Screened 3-night total from listed rate",
     size: 40,
     sleepsComfortably: true,
-    locationScore: 2,
+    locationScore: 5,
     valueScore: 4,
-    notes: "Useful budget fallback when price matters more than walking access to the old town.",
+    notes: "Great address and a fair screen price, but the space jump is smaller than the leading upgrades.",
     verdict: "Consider",
+    offerUrl: "https://booking-bydgoszcz.pl/offer/29/Apartament-Batorego-24C",
+    offerText: "Open offer",
+    isCurrent: false,
+    betterThanCurrent: false,
+    kidsPick: false,
+    bestLocation: true,
+    decisionRank: 6,
+    cardRank: 6,
+    image: "https://booking-bydgoszcz.pl/images/objects/pictures/large/9/2/339.jpg",
+    highlights: ["40 m2", "Historic core", "Location-led choice"],
+    whyCard: "Worth opening if Amy prioritises address over maximum breathing room."
+  },
+  {
+    id: "chwytowo-14",
+    name: "Apartamenty Chwytowo 14",
+    area: "Garbary fringe",
+    pricePln: 747,
+    priceType: "Screened 3-night total from listed rate",
+    size: 40,
+    sleepsComfortably: true,
+    locationScore: 4,
+    valueScore: 4,
+    notes: "Solid middle ground close to Garbary if Amy wants a pragmatic second-choice district.",
+    verdict: "Consider",
+    offerUrl: "https://booking-bydgoszcz.pl/offer/23/Apartamenty-Chwytowo-14",
+    offerText: "Open offer",
     isCurrent: false,
     betterThanCurrent: false,
     kidsPick: true,
     bestLocation: false,
     decisionRank: 7,
-    cardRank: 8,
-    image:
-      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80",
-    highlights: ["Budget fallback", "40 m²", "Farther out"],
-    whyCard: "Makes sense only if Amy wants to save and can trade away the central walk."
+    cardRank: 7,
+    image: "https://booking-bydgoszcz.pl/images/objects/pictures/large/3/2/294.jpg",
+    highlights: ["40 m2", "Good compromise", "Near Garbary"],
+    whyCard: "A smart fallback when the top old-town choices disappear or reprice."
   },
   {
-    id: "bohaterow-deluxe",
-    name: "Bohaterów Kragujewca 6 Deluxe",
-    area: "Szwederowo family layout",
-    pricePln: 1840,
-    priceType: "Estimated July total",
-    size: 54,
+    id: "teofila-5ab",
+    name: "Teofila Magdzinskiego 5/A/B",
+    area: "Srodmiescie / opera side",
+    pricePln: 1347,
+    priceType: "Screened 3-night total from listed rate",
+    size: 60,
     sleepsComfortably: true,
-    locationScore: 2,
+    locationScore: 3,
     valueScore: 3,
-    notes: "A stronger sleeping setup for kids, but the location penalty is hard to ignore.",
+    notes: "Big and family-capable, but the location is less aligned with Amy's preferred walking zones.",
     verdict: "Consider",
+    offerUrl: "https://booking-bydgoszcz.pl/offer/45/Teofila-Magdzinskiego-5AB",
+    offerText: "Open offer",
     isCurrent: false,
     betterThanCurrent: false,
     kidsPick: true,
     bestLocation: false,
     decisionRank: 8,
-    cardRank: 9,
-    image:
-      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80",
-    highlights: ["54 m²", "Best for separated sleep", "Location trade-off"],
-    whyCard: "Good only if sleeping separation is the top priority and location is secondary."
+    cardRank: 8,
+    image: "https://booking-bydgoszcz.pl/images/objects/pictures/large/5/4/795.jpg",
+    highlights: ["60 m2", "Large layout", "Less charming location"],
+    whyCard: "Makes sense only if family space matters more than being in the prettiest part of town."
   },
   {
-    id: "teofila-5ab",
-    name: "Teofila Magdzińskiego 5/A/B",
-    area: "Śródmieście / music district",
-    pricePln: 2240,
-    priceType: "Estimated July total",
-    size: 60,
+    id: "grodzka-44",
+    name: "Apartament Grodzka 4/4",
+    area: "Old Town core",
+    pricePln: 1563,
+    priceType: "Screened 3-night total from listed rate",
+    size: 90,
     sleepsComfortably: true,
-    locationScore: 3,
+    locationScore: 5,
     valueScore: 2,
-    notes: "Spacious, stylish and kid-friendly, but the budget starts to feel premium fast.",
+    notes: "Huge and central, but Amy starts paying for excess space rather than a balanced family upgrade.",
     verdict: "Consider",
+    offerUrl: "https://booking-bydgoszcz.pl/offer/24/Apartament-Grodzka-44",
+    offerText: "Open offer",
     isCurrent: false,
     betterThanCurrent: false,
     kidsPick: true,
-    bestLocation: false,
+    bestLocation: true,
     decisionRank: 9,
+    cardRank: 9,
+    image: "https://booking-bydgoszcz.pl/images/objects/pictures/large/4/2/303.jpg",
+    highlights: ["90 m2", "Old-town address", "Overkill for 4"],
+    whyCard: "Impressive on paper, but not the sharpest business decision for this family trip."
+  },
+  {
+    id: "bohaterow-suite",
+    name: "Apartament Bohaterow Kragujewca 6 typu Suite",
+    area: "Szwederowo alternative",
+    pricePln: 756,
+    priceType: "Screened 3-night total from listed rate",
+    size: 40,
+    sleepsComfortably: true,
+    locationScore: 2,
+    valueScore: 3,
+    notes: "The clear budget fallback if price starts to dominate the decision and central walkability matters less.",
+    verdict: "Consider",
+    offerUrl: "https://booking-bydgoszcz.pl/offer/14/Apartament-Bohaterow-Kragujewca-6-typu-Suite",
+    offerText: "Open offer",
+    isCurrent: false,
+    betterThanCurrent: false,
+    kidsPick: false,
+    bestLocation: false,
+    decisionRank: 10,
     cardRank: 10,
-    image:
-      "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80",
-    highlights: ["60 m²", "Premium spend", "More style than value"],
-    whyCard: "The space is strong, but Amy would be paying well above the practical sweet spot."
+    image: "https://booking-bydgoszcz.pl/images/objects/pictures/large/4/1/99.jpg",
+    highlights: ["40 m2", "Budget fallback", "Szwederowo base"],
+    whyCard: "Only worth a live check if Amy wants a cheaper reset rather than a better central stay."
   }
 ];
 
@@ -255,6 +289,10 @@ function formatSignedPln(value) {
 
   const sign = value > 0 ? "+" : "-";
   return `${sign}${plnFormatter.format(Math.abs(value))} PLN`;
+}
+
+function verdictClass(verdict) {
+  return `is-${verdict.toLowerCase()}`;
 }
 
 function getState() {
@@ -297,8 +335,12 @@ function getVisibleAlternatives(state) {
   return visible.sort(sorters[state.sort]);
 }
 
-function getVisibleRows(state) {
-  return [currentStay, ...getVisibleAlternatives(state)];
+function renderOfferLink(stay, className = "offer-link") {
+  if (!stay.offerUrl) {
+    return `<span class="${className} ${className}--muted">${stay.offerText}</span>`;
+  }
+
+  return `<a class="${className}" href="${stay.offerUrl}" target="_blank" rel="noreferrer">${stay.offerText}</a>`;
 }
 
 function updateDecision(primary) {
@@ -320,58 +362,58 @@ function updateDecision(primary) {
   if (!primary) {
     heroDecisionPill.textContent = "Keep";
     decisionBadge.textContent = "Keep";
-    heroDecisionHeading.textContent = "Keep the current booking unless a stronger layout appears.";
+    heroDecisionHeading.textContent = "Keep the current booking unless a stronger live option appears.";
     heroDecisionText.textContent =
-      "The active filters remove the practical switch candidates, so the booked stay remains the safest move.";
+      "The active filters remove the strongest click-through alternatives, so the booked stay remains the safest move.";
     heroTake.textContent = "Keep the current booking";
-    heroSupport.textContent = "No visible option is clearly stronger once the current filters are applied.";
+    heroSupport.textContent = "No visible live offer is clearly stronger once the current filters are applied.";
     metricBestOption.textContent = "Current booking";
-    metricSpaceGain.textContent = "0 m²";
+    metricSpaceGain.textContent = "0 m2";
     metricBudgetDelta.textContent = "0 PLN";
-    decisionTitle.textContent = "Keep unless a better-value 50+ m² option appears.";
+    decisionTitle.textContent = "Keep unless a better-value 50+ m2 option appears live.";
     decisionReason.textContent =
-      "With no stronger shortlist items visible, keeping the booked stay avoids churn and protects the preferred location.";
-    whySwitch.textContent = "A switch only makes sense when Amy gains meaningful family space near the river core.";
-    whyKeep.textContent = "The current booking is already confirmed and keeps the trip simple.";
+      "With no stronger shortlist items visible, keeping the booked stay avoids churn and protects the preferred zone.";
+    whySwitch.textContent = "A switch only makes sense when Amy gains meaningful family space in a better walking location.";
+    whyKeep.textContent = "The current booking is already confirmed and still keeps the trip simple.";
     extraNight.textContent =
-      "Use the current booking as the cost anchor until a larger central option appears at a sensible rate.";
+      "Use the current booking as the cost anchor until a larger central option appears on a live offer page.";
     return;
   }
 
   const spaceGain = primary.size - currentStay.size;
   const budgetDelta = primary.pricePln - currentStay.pricePln;
-  const nightlyEstimate = Math.round(primary.pricePln / 3 / 10) * 10;
+  const nightlyEstimate = Math.round(primary.pricePln / 3);
 
   heroDecisionPill.textContent = primary.betterThanCurrent ? "Switch" : "Keep";
   decisionBadge.textContent = primary.betterThanCurrent ? "Switch" : "Keep";
   heroDecisionHeading.textContent = primary.betterThanCurrent
-    ? "The best switch buys space, not status."
-    : "The visible shortlist is interesting, but not stronger than the current booking.";
+    ? "The best switch is now real, clickable, and easier to trust."
+    : "The visible live offers are useful, but not strong enough to beat the current booking.";
   heroDecisionText.textContent = primary.betterThanCurrent
-    ? `${primary.name} adds ${spaceGain} m² and keeps Amy near the stronger walking zones without lifting the total budget.`
-    : `${primary.name} is worth a look, but it does not improve the overall family trade-off enough to justify change.`;
+    ? `${primary.name} adds ${spaceGain} m2 and still screens ${formatSignedPln(budgetDelta)} against the current total before Amy checks the live July rate.`
+    : `${primary.name} is worth opening, but it does not improve the family trade-off enough to justify the change.`;
   heroTake.textContent = primary.betterThanCurrent
-    ? `Switch if ${primary.name} is still bookable`
+    ? `Switch if ${primary.name} still prices well live`
     : "Keep unless a sharper-value central apartment appears";
   heroSupport.textContent = primary.betterThanCurrent
-    ? "The strongest upside is family breathing room at roughly the same spend."
-    : "The current booking still wins on simplicity and risk control.";
+    ? "The upside is not just space. Amy can now open the real offer immediately."
+    : "The current booking still wins on certainty and risk control.";
   metricBestOption.textContent = primary.name;
-  metricSpaceGain.textContent = `${spaceGain > 0 ? "+" : ""}${spaceGain} m²`;
+  metricSpaceGain.textContent = `${spaceGain > 0 ? "+" : ""}${spaceGain} m2`;
   metricBudgetDelta.textContent = formatSignedPln(budgetDelta);
   decisionTitle.textContent = primary.betterThanCurrent
-    ? `Switch if ${primary.name} or a very similar central flat is available.`
-    : "Keep the current booking unless a larger central unit appears under budget.";
+    ? `Switch if ${primary.name} or a very similar live old-town offer is still bookable.`
+    : "Keep the current booking unless a larger central unit appears live under budget.";
   decisionReason.textContent = primary.betterThanCurrent
-    ? `Compared with Dream Team, ${primary.name} gives the family ${spaceGain} extra m² and a more practical living setup for ${formatSignedPln(budgetDelta)} versus the current total.`
-    : `The current booking still holds up because the visible alternatives either weaken the location or charge too much for the upgrade.`;
+    ? `${primary.name} is the clearest switch because Amy gets ${spaceGain} extra m2, a stronger family layout, and a real listing page to verify before cancelling the current stay.`
+    : "The visible alternatives either weaken the location logic, offer too little extra space, or rely on a weaker value case than the current booking.";
   whySwitch.textContent = primary.betterThanCurrent
-    ? "Amy gets a genuine family-space upgrade rather than a cosmetic improvement."
-    : "Switching only pays off when it improves both comfort and location logic.";
+    ? "Amy gets a real family-space upgrade and can check the offer page immediately instead of trusting a proxy comp."
+    : "Switching only pays off when it improves both comfort and the practical booking path.";
   whyKeep.textContent =
-    "If live rates jump above roughly 1450 PLN, the certainty of the booked stay becomes the better business decision.";
+    "If the live July rate jumps materially above the screening number, the certainty of the booked stay becomes the better decision.";
   extraNight.textContent =
-    `Expect an extra night in the leading shortlist to add about ${formatPln(nightlyEstimate)} before any cleaning or seasonal jump.`;
+    `Use about ${formatPln(nightlyEstimate)} as the first-pass extra-night screen, then confirm the exact July 2026 total on the offer page.`;
 }
 
 function renderRanking(visibleAlternatives) {
@@ -392,18 +434,17 @@ function renderRanking(visibleAlternatives) {
           <p>${stay.notes}</p>
           <div class="ranking-meta">
             <span class="score-chip">${formatPln(stay.pricePln)}</span>
-            <span class="score-chip">${stay.size} m²</span>
+            <span class="score-chip">${stay.size} m2</span>
             <span class="score-chip">Location ${stay.locationScore}/5</span>
             <span class="status-chip ${verdictClass(stay.verdict)}">${stay.verdict}</span>
+          </div>
+          <div class="ranking-actions">
+            ${renderOfferLink(stay, "offer-link")}
           </div>
         </article>
       `;
     })
     .join("");
-}
-
-function verdictClass(verdict) {
-  return `is-${verdict.toLowerCase()}`;
 }
 
 function renderComparison(rows) {
@@ -413,10 +454,7 @@ function renderComparison(rows) {
     .map((stay) => {
       const comfortLabel = stay.sleepsComfortably ? "Yes" : "No";
       const comfortClass = stay.sleepsComfortably ? "is-yes" : "is-no";
-      const rowClasses = [
-        stay.isCurrent ? "is-current" : "",
-        stay.betterThanCurrent ? "is-better" : ""
-      ]
+      const rowClasses = [stay.isCurrent ? "is-current" : "", stay.betterThanCurrent ? "is-better" : ""]
         .filter(Boolean)
         .join(" ");
 
@@ -424,7 +462,7 @@ function renderComparison(rows) {
         <tr class="${rowClasses}">
           <td class="property-cell">
             <strong>${stay.name}</strong>
-            <span>${stay.isCurrent ? "Current benchmark" : "Market comparable"}</span>
+            <span>${stay.isCurrent ? "Current benchmark" : "Real public offer"}</span>
           </td>
           <td>${stay.area}</td>
           <td class="table-price">
@@ -434,11 +472,12 @@ function renderComparison(rows) {
           <td>${stay.size}</td>
           <td class="comfort-cell ${comfortClass}">
             ${comfortLabel}
-            <span>${stay.sleepsComfortably ? "Good fit for 4" : "Too tight for 3–4 nights"}</span>
+            <span>${stay.sleepsComfortably ? "Works for 4 people" : "Too tight for 3-4 nights"}</span>
           </td>
           <td><span class="score-value">${stay.locationScore}</span>/5</td>
           <td><span class="score-value">${stay.valueScore}</span>/5</td>
           <td class="table-note">${stay.notes}</td>
+          <td class="table-offer">${renderOfferLink(stay, "offer-link offer-link--table")}</td>
           <td><span class="table-badge ${verdictClass(stay.verdict)}">${stay.verdict}</span></td>
         </tr>
       `;
@@ -447,7 +486,8 @@ function renderComparison(rows) {
 }
 
 function renderCards(visibleAlternatives) {
-  const cardPool = [currentStay, ...visibleAlternatives]
+  const cardPool = visibleAlternatives
+    .slice()
     .sort((a, b) => a.cardRank - b.cardRank)
     .slice(0, 5);
 
@@ -464,8 +504,11 @@ function renderCards(visibleAlternatives) {
               ${stay.highlights.map((item) => `<span>${item}</span>`).join("")}
             </div>
             <div class="card-why">
-              <span class="card-meta">Why it's better or not</span>
+              <span class="card-meta">Why it is better or not</span>
               <p>${stay.whyCard}</p>
+            </div>
+            <div class="card-actions">
+              ${renderOfferLink(stay, "offer-link")}
             </div>
           </div>
         </article>
@@ -481,35 +524,42 @@ function renderInsights() {
     .filter((stay) => stay.sleepsComfortably)
     .sort((a, b) => a.pricePln - b.pricePln)[0];
   const locationPremium = alternatives
-    .filter((stay) => stay.bestLocation && stay.pricePln > currentStay.pricePln)
-    .sort((a, b) => a.pricePln - b.pricePln)[0];
-  const medianComfortable =
-    alternatives
-      .filter((stay) => stay.sleepsComfortably)
-      .map((stay) => stay.pricePln)
-      .sort((a, b) => a - b)[Math.floor(alternatives.filter((stay) => stay.sleepsComfortably).length / 2)];
+    .filter((stay) => stay.bestLocation && stay.pricePln <= currentStay.pricePln)
+    .sort((a, b) => a.decisionRank - b.decisionRank)[0];
+  const budgetFallback = alternatives.find((stay) => stay.id === "bohaterow-suite");
+
+  const comfortablePrices = alternatives
+    .filter((stay) => stay.sleepsComfortably)
+    .map((stay) => stay.pricePln)
+    .sort((a, b) => a - b);
+  const medianComfortable = comfortablePrices[Math.floor(comfortablePrices.length / 2)];
   const extraAboveMedian = currentStay.pricePln - medianComfortable;
 
   const insightCards = [
     {
       label: "You are not overpaying, but...",
-      title: "Amy is paying central-money for one of the smallest family-capable layouts.",
-      text: `The current booking sits ${formatSignedPln(extraAboveMedian)} against the median comfortable shortlist, but the real issue is size: 31 m² is the least forgiving plan in the set.`
+      title: "Amy is paying central-money for one of the smallest layouts in the whole set.",
+      text: `The current booking is ${formatSignedPln(extraAboveMedian)} versus the median screened family option, but the bigger issue is space: 31 m2 is the least forgiving plan for a 4-person stay.`
     },
     {
       label: "Best upgrade path",
       title: betterOptions[0].name,
-      text: `${betterOptions[0].notes} It is the cleanest upgrade because it adds space without losing the walking experience.`
+      text: `${betterOptions[0].notes} It is the cleanest move because Amy gets a real click-through offer page and a meaningful family-space upgrade.`
     },
     {
       label: "Best budget downgrade",
-      title: cheapestComfortable.name,
-      text: `${cheapestComfortable.notes} Choose it only if Amy wants lower spend more than an old-town doorstep.`
+      title: budgetFallback.name,
+      text: `${budgetFallback.notes} Use it only if spend becomes the priority and central walkability stops mattering.`
     },
     {
       label: "Best location premium",
       title: locationPremium.name,
-      text: `${locationPremium.notes} This is the answer if Amy wants the most atmospheric setting and accepts paying above the benchmark.`
+      text: `${locationPremium.notes} This is the most atmospheric live alternative that still screens below the current confirmed total.`
+    },
+    {
+      label: "Best pure value",
+      title: cheapestComfortable.name,
+      text: `${cheapestComfortable.notes} It is the cheapest family-fit live page to open first if Amy wants the best value screen.`
     }
   ];
 
