@@ -37,6 +37,7 @@ It is intentionally built as a lightweight static site with **plain HTML, CSS, a
 - `styles.css` - all layout, typography, theme, responsiveness, and motion
 - `script.js` - footer year, step navigation, summary generation, and the brief wizard behavior
 - `assets/favicon.svg` - simple SVG favicon / brand mark
+- `bydgoszcz-stay-decision/` - preserved standalone decision dashboard published as a subpath
 - `.nojekyll` - keeps GitHub Pages serving the site as a static root project
 
 ## How to edit content later

@@ -1,0 +1,269 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bydgoszcz Stay Decision | Amy's accommodation options — July 2026</title>
+  <meta
+    name="description"
+    content="A clean decision dashboard comparing Amy's family accommodation options in Bydgoszcz for 9–12 July 2026."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;600;700&family=Instrument+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#top">
+        <span class="brand-mark"></span>
+        <span>Bydgoszcz Stay Decision</span>
+      </a>
+      <nav class="topnav" aria-label="Page sections">
+        <a href="#decision">Decision</a>
+        <a href="#compare">Compare</a>
+        <a href="#cards">Top picks</a>
+        <a href="#insights">Insights</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Family stay decision dashboard</p>
+          <h1>Bydgoszcz Stay Decision</h1>
+          <p class="subtitle">Amy's accommodation options — July 2026</p>
+          <p class="hero-text">
+            The current booking is in a strong zone, but it is also one of the smallest family
+            layouts in the shortlist. For two adults and two children, the smart move is to switch
+            only when the family gets a real space upgrade near Wyspa Młyńska or Garbary without
+            blowing past the current budget.
+          </p>
+
+          <div class="hero-signals">
+            <article class="signal-card">
+              <span class="signal-label">Current booking</span>
+              <strong>Dream Team Królowej Jadwigi</strong>
+              <span>31 m² · 1389 PLN confirmed</span>
+            </article>
+            <article class="signal-card">
+              <span class="signal-label">Target to beat</span>
+              <strong>50+ m² near the old town</strong>
+              <span>Keep the total close to 1300 PLN</span>
+            </article>
+            <article class="signal-card">
+              <span class="signal-label">Fast take</span>
+              <strong id="heroTake">Switch if the top shortlist is still bookable</strong>
+              <span id="heroSupport">Best upside comes from more space, not from luxury add-ons.</span>
+            </article>
+          </div>
+        </div>
+
+        <aside class="hero-panel">
+          <p class="panel-kicker">Decision snapshot</p>
+          <div class="hero-pill" id="heroDecisionPill">Switch</div>
+          <h2 id="heroDecisionHeading">The best switch buys space, not status.</h2>
+          <p id="heroDecisionText">
+            If Amy can secure the best-ranked option at roughly the current spend, switching is the
+            cleaner family decision. If not, the current booking remains a safe keep.
+          </p>
+          <dl class="decision-metrics">
+            <div>
+              <dt>Best alternative</dt>
+              <dd id="metricBestOption">Jezuicka 24</dd>
+            </div>
+            <div>
+              <dt>Space gain</dt>
+              <dd id="metricSpaceGain">+24 m²</dd>
+            </div>
+            <div>
+              <dt>Budget delta</dt>
+              <dd id="metricBudgetDelta">-149 PLN</dd>
+            </div>
+          </dl>
+        </aside>
+      </section>
+
+      <section class="method-note">
+        <p>
+          Current booking price is the confirmed benchmark. Alternative prices are practical July
+          family estimates built from public base rates, visible room specs and a summer-weekend
+          uplift, so this page works as a shortlist and decision tool rather than a live booking
+          engine.
+        </p>
+      </section>
+
+      <section class="decision-section" id="decision">
+        <div class="section-heading">
+          <p class="eyebrow">Recommended Decision</p>
+          <h2>Switch only for a clear family upgrade close to the river core.</h2>
+        </div>
+
+        <div class="decision-layout">
+          <article class="decision-main">
+            <div class="decision-badge" id="decisionBadge">Switch</div>
+            <h3 id="decisionTitle">Switch if Jezuicka 24 or an equivalent 50+ m² old-town flat is available.</h3>
+            <p id="decisionReason">
+              Dream Team wins on certainty and micro-location, but the family gives up too much
+              breathing room for the money. A larger one-bedroom-plus-sofa layout near Wyspa
+              Młyńska is the stronger fit for three nights with children aged 4 and 7.
+            </p>
+            <div class="decision-points">
+              <div>
+                <span>Why switch</span>
+                <p id="whySwitch">
+                  The strongest alternatives add real living space while staying around the current
+                  total spend.
+                </p>
+              </div>
+              <div>
+                <span>Why keep</span>
+                <p id="whyKeep">
+                  The current booking is already locked in and sits in a preferred zone, so there
+                  is no urgency to gamble on a weaker location.
+                </p>
+              </div>
+              <div>
+                <span>Extra-night impact</span>
+                <p id="extraNight">
+                  Expect an extra night to add roughly 320–560 PLN on the stronger-value options
+                  and more on riverfront premium picks.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <aside class="decision-ranking">
+            <div class="ranking-head">
+              <h3>Top alternatives</h3>
+              <p>Ranked by family fit, location strength and value versus the current booking.</p>
+            </div>
+            <div class="ranking-list" id="rankingList"></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="comparison-section" id="compare">
+        <div class="section-heading comparison-head">
+          <div>
+            <p class="eyebrow">Comparison Table</p>
+            <h2>Amy can scan this table in under two minutes.</h2>
+          </div>
+          <p class="comparison-count" id="comparisonCount">Showing 10 options</p>
+        </div>
+
+        <div class="controls-panel">
+          <label class="control-field">
+            <span>Sort by</span>
+            <select id="sortBy">
+              <option value="decision">Recommendation</option>
+              <option value="price">Price</option>
+              <option value="location">Location</option>
+              <option value="value">Value</option>
+            </select>
+          </label>
+
+          <label class="toggle-chip">
+            <input type="checkbox" id="betterOnly">
+            <span>Only better than current</span>
+          </label>
+
+          <label class="toggle-chip">
+            <input type="checkbox" id="kidsOnly">
+            <span>Best for kids</span>
+          </label>
+
+          <label class="toggle-chip">
+            <input type="checkbox" id="locationOnly">
+            <span>Best location</span>
+          </label>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Property Name</th>
+                <th>Area</th>
+                <th>Price (PLN)</th>
+                <th>Size (m²)</th>
+                <th>Sleeps Comfortably?</th>
+                <th>Location Score</th>
+                <th>Value Score</th>
+                <th>Notes</th>
+                <th>Verdict</th>
+              </tr>
+            </thead>
+            <tbody id="comparisonBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="cards-section" id="cards">
+        <div class="section-heading">
+          <p class="eyebrow">Visual Shortlist</p>
+          <h2>The top options at a glance.</h2>
+        </div>
+        <div class="cards-grid" id="cardsGrid"></div>
+      </section>
+
+      <section class="insights-section" id="insights">
+        <div class="section-heading">
+          <p class="eyebrow">Strategic Insights</p>
+          <h2>What matters most beyond the headline price.</h2>
+        </div>
+        <div class="insights-grid" id="insightsGrid"></div>
+      </section>
+
+      <section class="source-section">
+        <div class="section-heading">
+          <p class="eyebrow">Source Notes</p>
+          <h2>What this decision is built on.</h2>
+        </div>
+        <div class="source-grid">
+          <article>
+            <h3>Current benchmark</h3>
+            <p>
+              Dream Team Królowej Jadwigi stays the benchmark because it is already booked for
+              roughly 1389 PLN total.
+            </p>
+          </article>
+          <article>
+            <h3>Market comps</h3>
+            <p>
+              Public listing specs and base prices were cross-checked across Bydgoszcz short-stay
+              apartment listings, especially the booking-bydgoszcz portfolio in the old town and
+              nearby districts.
+            </p>
+          </article>
+          <article>
+            <h3>How to use it</h3>
+            <p>
+              Treat green rows as places worth checking live right now. Treat yellow rows as
+              situational, mainly if Amy values a specific micro-location or a more separated
+              sleeping setup.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>
+        <strong>Bydgoszcz Stay Decision</strong>
+        <span>Built for one fast decision: keep the current booking, or switch only for a real family win.</span>
+      </div>
+      <div class="footer-meta">
+        <a href="https://booking-bydgoszcz.pl/offers/searching/true" target="_blank" rel="noreferrer">Primary market comp source</a>
+        <a href="https://jakubgoscinny-creator.github.io/" target="_blank" rel="noreferrer">Live site</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
