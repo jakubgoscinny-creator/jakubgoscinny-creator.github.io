@@ -409,6 +409,11 @@ input {
   margin-top: 12px;
 }
 
+.ranking-actions,
+.card-actions {
+  margin-top: 16px;
+}
+
 .score-chip,
 .status-chip,
 .price-meta,
@@ -454,6 +459,50 @@ input {
 .comparison-count {
   margin: 0;
   color: var(--muted);
+}
+
+.offer-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(29, 88, 103, 0.16);
+  background: linear-gradient(135deg, rgba(29, 88, 103, 0.96), rgba(22, 64, 76, 0.96));
+  color: #f8fbfc;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 16px 30px rgba(29, 88, 103, 0.2);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.offer-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 20px 36px rgba(29, 88, 103, 0.24);
+}
+
+.offer-link:focus-visible {
+  outline: 3px solid rgba(184, 138, 47, 0.36);
+  outline-offset: 2px;
+}
+
+.offer-link--muted {
+  border-color: var(--line);
+  background: rgba(20, 34, 43, 0.08);
+  color: var(--muted);
+  box-shadow: none;
+}
+
+.offer-link--muted:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.offer-link--table {
+  width: 100%;
+  min-width: 116px;
 }
 
 .controls-panel {
@@ -576,6 +625,10 @@ tbody tr.is-better {
 
 .score-value {
   font-weight: 700;
+}
+
+.table-offer {
+  min-width: 142px;
 }
 
 .cards-grid,
