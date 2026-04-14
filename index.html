@@ -1,561 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>jakubgoscinny-creator | GitHub Pages</title>
-<meta name="description" content="Selected projects, interactive demos, and automation work published by jakubgoscinny-creator.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --paper:#f5efe3;
-    --paper-2:#efe4d0;
-    --ink:#10151a;
-    --muted:#55606a;
-    --line:rgba(16,21,26,.12);
-    --accent:#df6a35;
-    --accent-2:#0e9f8d;
-    --shadow:0 30px 80px rgba(33,27,20,.12);
-    --display:"Bricolage Grotesque", sans-serif;
-    --body:"IBM Plex Sans", sans-serif;
-  }
-
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{
-    margin:0;
-    font-family:var(--body);
-    color:var(--ink);
-    background:
-      radial-gradient(circle at top left, rgba(223,106,53,.20), transparent 24%),
-      radial-gradient(circle at 80% 12%, rgba(14,159,141,.14), transparent 20%),
-      linear-gradient(180deg, var(--paper), #fbf8f1 48%, var(--paper-2));
-    min-height:100vh;
-  }
-
-  body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    opacity:.32;
-    background-image:
-      linear-gradient(rgba(16,21,26,.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(16,21,26,.04) 1px, transparent 1px);
-    background-size:36px 36px;
-    mask-image:linear-gradient(180deg, rgba(0,0,0,.65), transparent 88%);
-  }
-
-  a{color:inherit;text-decoration:none}
-  img{display:block;max-width:100%}
-
-  .shell{
-    width:min(1180px, calc(100vw - 48px));
-    margin:0 auto;
-    position:relative;
-    z-index:1;
-  }
-
-  .topbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 0 14px;
-    border-bottom:1px solid var(--line);
-    font-size:13px;
-    letter-spacing:.08em;
-    text-transform:uppercase;
-    color:var(--muted);
-  }
-
-  .brandline{
-    display:flex;
-    gap:10px;
-    align-items:center;
-  }
-
-  .brandline .dot{
-    width:10px;
-    height:10px;
-    border-radius:50%;
-    background:linear-gradient(135deg,var(--accent),var(--accent-2));
-    box-shadow:0 0 0 5px rgba(223,106,53,.14);
-  }
-
-  .hero{
-    display:grid;
-    grid-template-columns:minmax(0, 1.2fr) minmax(280px, .8fr);
-    gap:28px;
-    padding:42px 0 30px;
-    align-items:start;
-  }
-
-  .eyebrow{
-    display:inline-block;
-    margin-bottom:16px;
-    padding:8px 12px;
-    border:1px solid var(--line);
-    background:rgba(255,255,255,.46);
-    font-size:12px;
-    letter-spacing:.16em;
-    text-transform:uppercase;
-    color:var(--muted);
-  }
-
-  h1,h2,h3{
-    margin:0;
-    font-family:var(--display);
-    font-weight:800;
-    line-height:.92;
-  }
-
-  h1{
-    font-size:clamp(3.1rem, 8vw, 6.4rem);
-    max-width:10ch;
-    letter-spacing:-.05em;
-  }
-
-  .hero-copy p{
-    margin:18px 0 0;
-    max-width:60ch;
-    font-size:18px;
-    line-height:1.7;
-    color:#303b44;
-  }
-
-  .signal-row{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-    margin-top:22px;
-  }
-
-  .signal{
-    padding:10px 14px;
-    border:1px solid var(--line);
-    background:rgba(255,255,255,.52);
-    font-size:13px;
-    color:var(--muted);
-  }
-
-  .signal strong{
-    color:var(--ink);
-    font-weight:700;
-  }
-
-  .profile-card{
-    padding:22px;
-    border:1px solid var(--line);
-    background:linear-gradient(180deg, rgba(255,255,255,.78), rgba(248,241,229,.92));
-    box-shadow:var(--shadow);
-    position:relative;
-    overflow:hidden;
-  }
-
-  .profile-card::after{
-    content:"";
-    position:absolute;
-    inset:auto -48px -48px auto;
-    width:180px;
-    height:180px;
-    border-radius:50%;
-    background:radial-gradient(circle, rgba(14,159,141,.18), transparent 68%);
-  }
-
-  .avatar{
-    width:92px;
-    height:92px;
-    border-radius:26px;
-    border:1px solid rgba(16,21,26,.12);
-    box-shadow:0 12px 32px rgba(16,21,26,.12);
-    margin-bottom:18px;
-  }
-
-  .profile-card h2{
-    font-size:36px;
-    letter-spacing:-.05em;
-  }
-
-  .profile-card p{
-    margin:10px 0 0;
-    color:var(--muted);
-    line-height:1.65;
-  }
-
-  .profile-links{
-    display:grid;
-    gap:10px;
-    margin-top:22px;
-  }
-
-  .profile-links a{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:12px 14px;
-    border:1px solid var(--line);
-    background:rgba(255,255,255,.56);
-    transition:transform .18s ease, border-color .18s ease, background .18s ease;
-  }
-
-  .profile-links a:hover{
-    transform:translateY(-2px);
-    border-color:rgba(223,106,53,.36);
-    background:#fff;
-  }
-
-  .section-head{
-    display:flex;
-    justify-content:space-between;
-    gap:24px;
-    align-items:end;
-    padding:8px 0 18px;
-  }
-
-  .section-head h2{
-    font-size:48px;
-    letter-spacing:-.05em;
-  }
-
-  .section-head p{
-    margin:0;
-    max-width:56ch;
-    color:var(--muted);
-    line-height:1.65;
-  }
-
-  .projects{
-    display:grid;
-    grid-template-columns:repeat(3, minmax(0, 1fr));
-    gap:18px;
-    padding-bottom:26px;
-  }
-
-  .card{
-    position:relative;
-    min-height:260px;
-    padding:22px;
-    border:1px solid var(--line);
-    background:linear-gradient(180deg, rgba(255,255,255,.78), rgba(246,238,225,.94));
-    box-shadow:0 18px 40px rgba(39,28,16,.08);
-    display:grid;
-    gap:14px;
-    align-content:start;
-    transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
-  }
-
-  .card:hover{
-    transform:translateY(-6px);
-    border-color:rgba(14,159,141,.26);
-    box-shadow:0 28px 56px rgba(39,28,16,.14);
-  }
-
-  .card::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:linear-gradient(135deg, rgba(223,106,53,.08), transparent 42%, rgba(14,159,141,.07));
-    pointer-events:none;
-  }
-
-  .tag{
-    display:inline-flex;
-    width:max-content;
-    align-items:center;
-    gap:8px;
-    padding:7px 10px;
-    border:1px solid var(--line);
-    background:rgba(255,255,255,.72);
-    font-size:11px;
-    letter-spacing:.12em;
-    text-transform:uppercase;
-    color:var(--muted);
-  }
-
-  .tag::before{
-    content:"";
-    width:8px;
-    height:8px;
-    border-radius:50%;
-    background:var(--accent);
-  }
-
-  .card h3{
-    font-size:30px;
-    letter-spacing:-.04em;
-  }
-
-  .card p{
-    margin:0;
-    color:var(--muted);
-    line-height:1.65;
-  }
-
-  .card footer{
-    margin-top:auto;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:14px;
-    font-size:13px;
-    color:var(--muted);
-  }
-
-  .cta{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    font-weight:600;
-    color:var(--ink);
-  }
-
-  .summary{
-    display:grid;
-    grid-template-columns:1.05fr .95fr;
-    gap:18px;
-    padding:26px 0 56px;
-  }
-
-  .summary-panel{
-    padding:24px;
-    border:1px solid var(--line);
-    background:rgba(255,255,255,.62);
-  }
-
-  .summary-panel h3{
-    font-size:34px;
-    margin-bottom:10px;
-  }
-
-  .summary-panel p{
-    margin:0;
-    color:var(--muted);
-    line-height:1.72;
-  }
-
-  .list{
-    display:grid;
-    gap:12px;
-    margin-top:18px;
-  }
-
-  .list div{
-    display:flex;
-    gap:12px;
-    align-items:flex-start;
-    padding-top:12px;
-    border-top:1px solid var(--line);
-  }
-
-  .list strong{
-    min-width:124px;
-    font-size:12px;
-    letter-spacing:.14em;
-    text-transform:uppercase;
-    color:var(--muted);
-  }
-
-  .footerline{
-    display:flex;
-    justify-content:space-between;
-    gap:20px;
-    align-items:center;
-    padding:18px 0 32px;
-    border-top:1px solid var(--line);
-    color:var(--muted);
-    font-size:14px;
-  }
-
-  .footerline a{
-    text-decoration:underline;
-    text-underline-offset:3px;
-  }
-
-  .rise{
-    opacity:0;
-    transform:translateY(22px);
-    animation:rise .7s ease forwards;
-  }
-
-  .rise:nth-child(2){animation-delay:.08s}
-  .rise:nth-child(3){animation-delay:.16s}
-  .rise:nth-child(4){animation-delay:.24s}
-  .rise:nth-child(5){animation-delay:.32s}
-  .rise:nth-child(6){animation-delay:.40s}
-
-  @keyframes rise{
-    to{opacity:1;transform:none}
-  }
-
-  @media (max-width: 980px){
-    .hero,
-    .summary,
-    .projects{
-      grid-template-columns:1fr;
-    }
-    .section-head,
-    .topbar,
-    .footerline{
-      flex-direction:column;
-      align-items:flex-start;
-    }
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bydgoszcz Stay Decision | Amy's accommodation options — July 2026</title>
+  <meta
+    name="description"
+    content="A clean decision dashboard comparing Amy's family accommodation options in Bydgoszcz for 9–12 July 2026."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;600;700&family=Instrument+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="shell">
-    <header class="topbar rise">
-      <div class="brandline">
-        <span class="dot"></span>
-        <span>jakubgoscinny-creator</span>
-      </div>
-      <span>GitHub Pages Personal Site</span>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#top">
+        <span class="brand-mark"></span>
+        <span>Bydgoszcz Stay Decision</span>
+      </a>
+      <nav class="topnav" aria-label="Page sections">
+        <a href="#decision">Decision</a>
+        <a href="#compare">Compare</a>
+        <a href="#cards">Top picks</a>
+        <a href="#insights">Insights</a>
+      </nav>
     </header>
 
-    <section class="hero">
-      <div class="hero-copy rise">
-        <span class="eyebrow">Interactive Work, Quiet Systems</span>
-        <h1>Projects that feel built, not templated.</h1>
-        <p>
-          This page is a live front door for selected public work from
-          <strong>jakubgoscinny-creator</strong>: interactive demos, automation experiments,
-          content-rich web builds, and decision-focused tools designed to do something useful.
-        </p>
-        <div class="signal-row">
-          <div class="signal"><strong>12</strong> public repositories</div>
-          <div class="signal"><strong>Focus:</strong> demos, tooling, automation</div>
-          <div class="signal"><strong>Format:</strong> GitHub-native publishing</div>
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Family stay decision dashboard</p>
+          <h1>Bydgoszcz Stay Decision</h1>
+          <p class="subtitle">Amy's accommodation options — July 2026</p>
+          <p class="hero-text">
+            The current booking is in a strong zone, but it is also one of the smallest family
+            layouts in the shortlist. For two adults and two children, the smart move is to switch
+            only when the family gets a real space upgrade near Wyspa Młyńska or Garbary without
+            blowing past the current budget.
+          </p>
+
+          <div class="hero-signals">
+            <article class="signal-card">
+              <span class="signal-label">Current booking</span>
+              <strong>Dream Team Królowej Jadwigi</strong>
+              <span>31 m² · 1389 PLN confirmed</span>
+            </article>
+            <article class="signal-card">
+              <span class="signal-label">Target to beat</span>
+              <strong>50+ m² near the old town</strong>
+              <span>Keep the total close to 1300 PLN</span>
+            </article>
+            <article class="signal-card">
+              <span class="signal-label">Fast take</span>
+              <strong id="heroTake">Switch if the top shortlist is still bookable</strong>
+              <span id="heroSupport">Best upside comes from more space, not from luxury add-ons.</span>
+            </article>
+          </div>
         </div>
-      </div>
 
-      <aside class="profile-card rise">
-        <img class="avatar" src="https://avatars.githubusercontent.com/u/224534814?v=4" alt="GitHub avatar for jakubgoscinny-creator">
-        <span class="eyebrow">Profile</span>
-        <h2>Creator account for experiments, delivery pages, and public showcases.</h2>
+        <aside class="hero-panel">
+          <p class="panel-kicker">Decision snapshot</p>
+          <div class="hero-pill" id="heroDecisionPill">Switch</div>
+          <h2 id="heroDecisionHeading">The best switch buys space, not status.</h2>
+          <p id="heroDecisionText">
+            If Amy can secure the best-ranked option at roughly the current spend, switching is the
+            cleaner family decision. If not, the current booking remains a safe keep.
+          </p>
+          <dl class="decision-metrics">
+            <div>
+              <dt>Best alternative</dt>
+              <dd id="metricBestOption">Jezuicka 24</dd>
+            </div>
+            <div>
+              <dt>Space gain</dt>
+              <dd id="metricSpaceGain">+24 m²</dd>
+            </div>
+            <div>
+              <dt>Budget delta</dt>
+              <dd id="metricBudgetDelta">-149 PLN</dd>
+            </div>
+          </dl>
+        </aside>
+      </section>
+
+      <section class="method-note">
         <p>
-          A compact GitHub presence with practical builds, client-facing demos,
-          and exploratory projects published as clean, accessible web artifacts.
+          Current booking price is the confirmed benchmark. Alternative prices are practical July
+          family estimates built from public base rates, visible room specs and a summer-weekend
+          uplift, so this page works as a shortlist and decision tool rather than a live booking
+          engine.
         </p>
-        <div class="profile-links">
-          <a href="https://github.com/jakubgoscinny-creator" target="_blank" rel="noreferrer">
-            <span>Open GitHub profile</span>
-            <span>github.com</span>
-          </a>
-          <a href="#projects">
-            <span>Jump to selected work</span>
-            <span>below</span>
-          </a>
+      </section>
+
+      <section class="decision-section" id="decision">
+        <div class="section-heading">
+          <p class="eyebrow">Recommended Decision</p>
+          <h2>Switch only for a clear family upgrade close to the river core.</h2>
         </div>
-      </aside>
-    </section>
 
-    <section id="projects">
-      <div class="section-head rise">
-        <div>
-          <span class="eyebrow">Selected Public Work</span>
-          <h2>Current highlights</h2>
+        <div class="decision-layout">
+          <article class="decision-main">
+            <div class="decision-badge" id="decisionBadge">Switch</div>
+            <h3 id="decisionTitle">Switch if Jezuicka 24 or an equivalent 50+ m² old-town flat is available.</h3>
+            <p id="decisionReason">
+              Dream Team wins on certainty and micro-location, but the family gives up too much
+              breathing room for the money. A larger one-bedroom-plus-sofa layout near Wyspa
+              Młyńska is the stronger fit for three nights with children aged 4 and 7.
+            </p>
+            <div class="decision-points">
+              <div>
+                <span>Why switch</span>
+                <p id="whySwitch">
+                  The strongest alternatives add real living space while staying around the current
+                  total spend.
+                </p>
+              </div>
+              <div>
+                <span>Why keep</span>
+                <p id="whyKeep">
+                  The current booking is already locked in and sits in a preferred zone, so there
+                  is no urgency to gamble on a weaker location.
+                </p>
+              </div>
+              <div>
+                <span>Extra-night impact</span>
+                <p id="extraNight">
+                  Expect an extra night to add roughly 320–560 PLN on the stronger-value options
+                  and more on riverfront premium picks.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <aside class="decision-ranking">
+            <div class="ranking-head">
+              <h3>Top alternatives</h3>
+              <p>Ranked by family fit, location strength and value versus the current booking.</p>
+            </div>
+            <div class="ranking-list" id="rankingList"></div>
+          </aside>
         </div>
-        <p>
-          A mix of portfolio-style demos, practical tools, and content-rich web projects.
-          Each card links directly to the repository so visitors can explore code, context, and output.
-        </p>
-      </div>
+      </section>
 
-      <div class="projects">
-        <a class="card rise" href="https://github.com/jakubgoscinny-creator/zcg-dispo-hub-demo" target="_blank" rel="noreferrer">
-          <span class="tag">Interactive Demo</span>
-          <h3>ZCG Disposition Hub</h3>
-          <p>Proposal-grade portal mockup for real estate operations with workflow views, underwriting, buyer data, and campaign flows.</p>
-          <footer>
-            <span>Updated Apr 2026</span>
-            <span class="cta">Open repo <span aria-hidden="true">↗</span></span>
-          </footer>
-        </a>
-
-        <a class="card rise" href="https://github.com/jakubgoscinny-creator/bar-gora-3d" target="_blank" rel="noreferrer">
-          <span class="tag">3D Planning</span>
-          <h3>Bar Góra 3D</h3>
-          <p>Spatial planning work for an attic layout with A-frame constraints and practical object placement.</p>
-          <footer>
-            <span>Updated Apr 2026</span>
-            <span class="cta">Open repo <span aria-hidden="true">↗</span></span>
-          </footer>
-        </a>
-
-        <a class="card rise" href="https://github.com/jakubgoscinny-creator/o-choinka-2025" target="_blank" rel="noreferrer">
-          <span class="tag">Browser Game</span>
-          <h3>O Choinka! 2025</h3>
-          <p>A festive interactive game built for a cause: playful, lightweight, and designed to feel alive in the browser.</p>
-          <footer>
-            <span>Updated Mar 2026</span>
-            <span class="cta">Open repo <span aria-hidden="true">↗</span></span>
-          </footer>
-        </a>
-
-        <a class="card rise" href="https://github.com/jakubgoscinny-creator/Dom" target="_blank" rel="noreferrer">
-          <span class="tag">Operations</span>
-          <h3>Dom</h3>
-          <p>A home-focused system for renovation logistics, finances, purchases, and living documentation.</p>
-          <footer>
-            <span>Updated Mar 2026</span>
-            <span class="cta">Open repo <span aria-hidden="true">↗</span></span>
-          </footer>
-        </a>
-
-        <a class="card rise" href="https://github.com/jakubgoscinny-creator/bydgoszcz-city-game" target="_blank" rel="noreferrer">
-          <span class="tag">City Experience</span>
-          <h3>Bydgoszcz City Game</h3>
-          <p>A family-friendly digital city walk through Bydgoszcz, blending place, movement, and guided exploration.</p>
-          <footer>
-            <span>Updated Mar 2026</span>
-            <span class="cta">Open repo <span aria-hidden="true">↗</span></span>
-          </footer>
-        </a>
-
-        <a class="card rise" href="https://github.com/jakubgoscinny-creator/windows-operator-blog" target="_blank" rel="noreferrer">
-          <span class="tag">Automation Writing</span>
-          <h3>Windows Operator Blog</h3>
-          <p>Public writing around AI-driven Windows desktop automation and the workflows that make it practical.</p>
-          <footer>
-            <span>Updated Mar 2026</span>
-            <span class="cta">Open repo <span aria-hidden="true">↗</span></span>
-          </footer>
-        </a>
-      </div>
-    </section>
-
-    <section class="summary">
-      <div class="summary-panel rise">
-        <span class="eyebrow">Why This Page Exists</span>
-        <h3>A cleaner profile surface.</h3>
-        <p>
-          GitHub repositories are great for depth, but not always for first impressions.
-          This page gives the account a stable, readable entry point: one URL, a clear tone,
-          and direct paths into the most interesting public work.
-        </p>
-      </div>
-
-      <div class="summary-panel rise">
-        <span class="eyebrow">At A Glance</span>
-        <h3>Publishing profile</h3>
-        <div class="list">
-          <div><strong>Base</strong><span>Static HTML hosted directly through GitHub Pages.</span></div>
-          <div><strong>Content</strong><span>Selected repositories with short contextual descriptions.</span></div>
-          <div><strong>Use</strong><span>Portfolio link, profile homepage, and a simpler public landing point.</span></div>
+      <section class="comparison-section" id="compare">
+        <div class="section-heading comparison-head">
+          <div>
+            <p class="eyebrow">Comparison Table</p>
+            <h2>Amy can scan this table in under two minutes.</h2>
+          </div>
+          <p class="comparison-count" id="comparisonCount">Showing 10 options</p>
         </div>
-      </div>
-    </section>
 
-    <footer class="footerline rise">
-      <span>&copy; <span id="year"></span> jakubgoscinny-creator</span>
-      <a href="https://github.com/jakubgoscinny-creator" target="_blank" rel="noreferrer">View the full GitHub account</a>
+        <div class="controls-panel">
+          <label class="control-field">
+            <span>Sort by</span>
+            <select id="sortBy">
+              <option value="decision">Recommendation</option>
+              <option value="price">Price</option>
+              <option value="location">Location</option>
+              <option value="value">Value</option>
+            </select>
+          </label>
+
+          <label class="toggle-chip">
+            <input type="checkbox" id="betterOnly">
+            <span>Only better than current</span>
+          </label>
+
+          <label class="toggle-chip">
+            <input type="checkbox" id="kidsOnly">
+            <span>Best for kids</span>
+          </label>
+
+          <label class="toggle-chip">
+            <input type="checkbox" id="locationOnly">
+            <span>Best location</span>
+          </label>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Property Name</th>
+                <th>Area</th>
+                <th>Price (PLN)</th>
+                <th>Size (m²)</th>
+                <th>Sleeps Comfortably?</th>
+                <th>Location Score</th>
+                <th>Value Score</th>
+                <th>Notes</th>
+                <th>Verdict</th>
+              </tr>
+            </thead>
+            <tbody id="comparisonBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="cards-section" id="cards">
+        <div class="section-heading">
+          <p class="eyebrow">Visual Shortlist</p>
+          <h2>The top options at a glance.</h2>
+        </div>
+        <div class="cards-grid" id="cardsGrid"></div>
+      </section>
+
+      <section class="insights-section" id="insights">
+        <div class="section-heading">
+          <p class="eyebrow">Strategic Insights</p>
+          <h2>What matters most beyond the headline price.</h2>
+        </div>
+        <div class="insights-grid" id="insightsGrid"></div>
+      </section>
+
+      <section class="source-section">
+        <div class="section-heading">
+          <p class="eyebrow">Source Notes</p>
+          <h2>What this decision is built on.</h2>
+        </div>
+        <div class="source-grid">
+          <article>
+            <h3>Current benchmark</h3>
+            <p>
+              Dream Team Królowej Jadwigi stays the benchmark because it is already booked for
+              roughly 1389 PLN total.
+            </p>
+          </article>
+          <article>
+            <h3>Market comps</h3>
+            <p>
+              Public listing specs and base prices were cross-checked across Bydgoszcz short-stay
+              apartment listings, especially the booking-bydgoszcz portfolio in the old town and
+              nearby districts.
+            </p>
+          </article>
+          <article>
+            <h3>How to use it</h3>
+            <p>
+              Treat green rows as places worth checking live right now. Treat yellow rows as
+              situational, mainly if Amy values a specific micro-location or a more separated
+              sleeping setup.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>
+        <strong>Bydgoszcz Stay Decision</strong>
+        <span>Built for one fast decision: keep the current booking, or switch only for a real family win.</span>
+      </div>
+      <div class="footer-meta">
+        <a href="https://booking-bydgoszcz.pl/offers/searching/true" target="_blank" rel="noreferrer">Primary market comp source</a>
+        <a href="https://jakubgoscinny-creator.github.io/" target="_blank" rel="noreferrer">Live site</a>
+      </div>
     </footer>
   </div>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
