@@ -1,561 +1,627 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>jakubgoscinny-creator | GitHub Pages</title>
-<meta name="description" content="Selected projects, interactive demos, and automation work published by jakubgoscinny-creator.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --paper:#f5efe3;
-    --paper-2:#efe4d0;
-    --ink:#10151a;
-    --muted:#55606a;
-    --line:rgba(16,21,26,.12);
-    --accent:#df6a35;
-    --accent-2:#0e9f8d;
-    --shadow:0 30px 80px rgba(33,27,20,.12);
-    --display:"Bricolage Grotesque", sans-serif;
-    --body:"IBM Plex Sans", sans-serif;
-  }
-
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{
-    margin:0;
-    font-family:var(--body);
-    color:var(--ink);
-    background:
-      radial-gradient(circle at top left, rgba(223,106,53,.20), transparent 24%),
-      radial-gradient(circle at 80% 12%, rgba(14,159,141,.14), transparent 20%),
-      linear-gradient(180deg, var(--paper), #fbf8f1 48%, var(--paper-2));
-    min-height:100vh;
-  }
-
-  body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    opacity:.32;
-    background-image:
-      linear-gradient(rgba(16,21,26,.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(16,21,26,.04) 1px, transparent 1px);
-    background-size:36px 36px;
-    mask-image:linear-gradient(180deg, rgba(0,0,0,.65), transparent 88%);
-  }
-
-  a{color:inherit;text-decoration:none}
-  img{display:block;max-width:100%}
-
-  .shell{
-    width:min(1180px, calc(100vw - 48px));
-    margin:0 auto;
-    position:relative;
-    z-index:1;
-  }
-
-  .topbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 0 14px;
-    border-bottom:1px solid var(--line);
-    font-size:13px;
-    letter-spacing:.08em;
-    text-transform:uppercase;
-    color:var(--muted);
-  }
-
-  .brandline{
-    display:flex;
-    gap:10px;
-    align-items:center;
-  }
-
-  .brandline .dot{
-    width:10px;
-    height:10px;
-    border-radius:50%;
-    background:linear-gradient(135deg,var(--accent),var(--accent-2));
-    box-shadow:0 0 0 5px rgba(223,106,53,.14);
-  }
-
-  .hero{
-    display:grid;
-    grid-template-columns:minmax(0, 1.2fr) minmax(280px, .8fr);
-    gap:28px;
-    padding:42px 0 30px;
-    align-items:start;
-  }
-
-  .eyebrow{
-    display:inline-block;
-    margin-bottom:16px;
-    padding:8px 12px;
-    border:1px solid var(--line);
-    background:rgba(255,255,255,.46);
-    font-size:12px;
-    letter-spacing:.16em;
-    text-transform:uppercase;
-    color:var(--muted);
-  }
-
-  h1,h2,h3{
-    margin:0;
-    font-family:var(--display);
-    font-weight:800;
-    line-height:.92;
-  }
-
-  h1{
-    font-size:clamp(3.1rem, 8vw, 6.4rem);
-    max-width:10ch;
-    letter-spacing:-.05em;
-  }
-
-  .hero-copy p{
-    margin:18px 0 0;
-    max-width:60ch;
-    font-size:18px;
-    line-height:1.7;
-    color:#303b44;
-  }
-
-  .signal-row{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-    margin-top:22px;
-  }
-
-  .signal{
-    padding:10px 14px;
-    border:1px solid var(--line);
-    background:rgba(255,255,255,.52);
-    font-size:13px;
-    color:var(--muted);
-  }
-
-  .signal strong{
-    color:var(--ink);
-    font-weight:700;
-  }
-
-  .profile-card{
-    padding:22px;
-    border:1px solid var(--line);
-    background:linear-gradient(180deg, rgba(255,255,255,.78), rgba(248,241,229,.92));
-    box-shadow:var(--shadow);
-    position:relative;
-    overflow:hidden;
-  }
-
-  .profile-card::after{
-    content:"";
-    position:absolute;
-    inset:auto -48px -48px auto;
-    width:180px;
-    height:180px;
-    border-radius:50%;
-    background:radial-gradient(circle, rgba(14,159,141,.18), transparent 68%);
-  }
-
-  .avatar{
-    width:92px;
-    height:92px;
-    border-radius:26px;
-    border:1px solid rgba(16,21,26,.12);
-    box-shadow:0 12px 32px rgba(16,21,26,.12);
-    margin-bottom:18px;
-  }
-
-  .profile-card h2{
-    font-size:36px;
-    letter-spacing:-.05em;
-  }
-
-  .profile-card p{
-    margin:10px 0 0;
-    color:var(--muted);
-    line-height:1.65;
-  }
-
-  .profile-links{
-    display:grid;
-    gap:10px;
-    margin-top:22px;
-  }
-
-  .profile-links a{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:12px 14px;
-    border:1px solid var(--line);
-    background:rgba(255,255,255,.56);
-    transition:transform .18s ease, border-color .18s ease, background .18s ease;
-  }
-
-  .profile-links a:hover{
-    transform:translateY(-2px);
-    border-color:rgba(223,106,53,.36);
-    background:#fff;
-  }
-
-  .section-head{
-    display:flex;
-    justify-content:space-between;
-    gap:24px;
-    align-items:end;
-    padding:8px 0 18px;
-  }
-
-  .section-head h2{
-    font-size:48px;
-    letter-spacing:-.05em;
-  }
-
-  .section-head p{
-    margin:0;
-    max-width:56ch;
-    color:var(--muted);
-    line-height:1.65;
-  }
-
-  .projects{
-    display:grid;
-    grid-template-columns:repeat(3, minmax(0, 1fr));
-    gap:18px;
-    padding-bottom:26px;
-  }
-
-  .card{
-    position:relative;
-    min-height:260px;
-    padding:22px;
-    border:1px solid var(--line);
-    background:linear-gradient(180deg, rgba(255,255,255,.78), rgba(246,238,225,.94));
-    box-shadow:0 18px 40px rgba(39,28,16,.08);
-    display:grid;
-    gap:14px;
-    align-content:start;
-    transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
-  }
-
-  .card:hover{
-    transform:translateY(-6px);
-    border-color:rgba(14,159,141,.26);
-    box-shadow:0 28px 56px rgba(39,28,16,.14);
-  }
-
-  .card::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:linear-gradient(135deg, rgba(223,106,53,.08), transparent 42%, rgba(14,159,141,.07));
-    pointer-events:none;
-  }
-
-  .tag{
-    display:inline-flex;
-    width:max-content;
-    align-items:center;
-    gap:8px;
-    padding:7px 10px;
-    border:1px solid var(--line);
-    background:rgba(255,255,255,.72);
-    font-size:11px;
-    letter-spacing:.12em;
-    text-transform:uppercase;
-    color:var(--muted);
-  }
-
-  .tag::before{
-    content:"";
-    width:8px;
-    height:8px;
-    border-radius:50%;
-    background:var(--accent);
-  }
-
-  .card h3{
-    font-size:30px;
-    letter-spacing:-.04em;
-  }
-
-  .card p{
-    margin:0;
-    color:var(--muted);
-    line-height:1.65;
-  }
-
-  .card footer{
-    margin-top:auto;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:14px;
-    font-size:13px;
-    color:var(--muted);
-  }
-
-  .cta{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    font-weight:600;
-    color:var(--ink);
-  }
-
-  .summary{
-    display:grid;
-    grid-template-columns:1.05fr .95fr;
-    gap:18px;
-    padding:26px 0 56px;
-  }
-
-  .summary-panel{
-    padding:24px;
-    border:1px solid var(--line);
-    background:rgba(255,255,255,.62);
-  }
-
-  .summary-panel h3{
-    font-size:34px;
-    margin-bottom:10px;
-  }
-
-  .summary-panel p{
-    margin:0;
-    color:var(--muted);
-    line-height:1.72;
-  }
-
-  .list{
-    display:grid;
-    gap:12px;
-    margin-top:18px;
-  }
-
-  .list div{
-    display:flex;
-    gap:12px;
-    align-items:flex-start;
-    padding-top:12px;
-    border-top:1px solid var(--line);
-  }
-
-  .list strong{
-    min-width:124px;
-    font-size:12px;
-    letter-spacing:.14em;
-    text-transform:uppercase;
-    color:var(--muted);
-  }
-
-  .footerline{
-    display:flex;
-    justify-content:space-between;
-    gap:20px;
-    align-items:center;
-    padding:18px 0 32px;
-    border-top:1px solid var(--line);
-    color:var(--muted);
-    font-size:14px;
-  }
-
-  .footerline a{
-    text-decoration:underline;
-    text-underline-offset:3px;
-  }
-
-  .rise{
-    opacity:0;
-    transform:translateY(22px);
-    animation:rise .7s ease forwards;
-  }
-
-  .rise:nth-child(2){animation-delay:.08s}
-  .rise:nth-child(3){animation-delay:.16s}
-  .rise:nth-child(4){animation-delay:.24s}
-  .rise:nth-child(5){animation-delay:.32s}
-  .rise:nth-child(6){animation-delay:.40s}
-
-  @keyframes rise{
-    to{opacity:1;transform:none}
-  }
-
-  @media (max-width: 980px){
-    .hero,
-    .summary,
-    .projects{
-      grid-template-columns:1fr;
-    }
-    .section-head,
-    .topbar,
-    .footerline{
-      flex-direction:column;
-      align-items:flex-start;
-    }
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jakub Goscinny | Systems Design, Automation, and Workflow Portals</title>
+  <meta
+    name="description"
+    content="Jakub Goscinny builds operational software: workflow portals, automation layers, AI-assisted tools, and high-trust demos for business systems."
+  >
+  <meta name="theme-color" content="#11131a">
+  <meta name="color-scheme" content="light">
+  <link rel="canonical" href="https://jakubgoscinny-creator.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Jakub Goscinny | Systems Design, Automation, and Workflow Portals">
+  <meta
+    property="og:description"
+    content="Workflow portals, operational interfaces, automation layers, and AI-assisted tools built with a product mindset and delivery discipline."
+  >
+  <meta property="og:url" content="https://jakubgoscinny-creator.github.io/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Jakub Goscinny | Systems Design, Automation, and Workflow Portals">
+  <meta
+    name="twitter:description"
+    content="A premium GitHub Pages profile site focused on systems thinking, automation, AI workflows, and operational software."
+  >
+  <script>
+    document.documentElement.classList.add("js");
+  </script>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="shell">
-    <header class="topbar rise">
-      <div class="brandline">
-        <span class="dot"></span>
-        <span>jakubgoscinny-creator</span>
-      </div>
-      <span>GitHub Pages Personal Site</span>
-    </header>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <section class="hero">
-      <div class="hero-copy rise">
-        <span class="eyebrow">Interactive Work, Quiet Systems</span>
-        <h1>Projects that feel built, not templated.</h1>
-        <p>
-          This page is a live front door for selected public work from
-          <strong>jakubgoscinny-creator</strong>: interactive demos, automation experiments,
-          content-rich web builds, and decision-focused tools designed to do something useful.
+  <div class="site-chrome" aria-hidden="true">
+    <div class="site-glow site-glow-a"></div>
+    <div class="site-glow site-glow-b"></div>
+  </div>
+
+  <header class="site-header">
+    <div class="shell site-header-inner">
+      <a class="brand" href="#top" aria-label="Go to homepage">
+        <span class="brand-mark"></span>
+        <span class="brand-copy">
+          <strong>Jakub Goscinny</strong>
+          <span>Systems designer / automation consultant / builder</span>
+        </span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#selected-work">Work</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#tooling">Tooling</a>
+        <a href="#brief">Brief</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero shell section" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">Operational software for real workflows</p>
+        <h1>I design the layer between process, people, and automation.</h1>
+        <p class="lead">
+          I build workflow portals, AI-assisted tools, and operational interfaces for teams
+          that need more clarity and less friction. The public work leans toward Podio and
+          ProcFu-style business systems, decision tools, premium demos, and practical software
+          that helps operators move work with confidence.
         </p>
-        <div class="signal-row">
-          <div class="signal"><strong>12</strong> public repositories</div>
-          <div class="signal"><strong>Focus:</strong> demos, tooling, automation</div>
-          <div class="signal"><strong>Format:</strong> GitHub-native publishing</div>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#brief">Start project brief</a>
+          <a class="button button-secondary" href="#selected-work">View selected work</a>
         </div>
+
+        <ul class="signal-list" aria-label="Core focus areas">
+          <li>Workflow portals</li>
+          <li>Automation systems</li>
+          <li>AI-assisted delivery</li>
+          <li>Proposal-ready briefs</li>
+        </ul>
       </div>
 
-      <aside class="profile-card rise">
-        <img class="avatar" src="https://avatars.githubusercontent.com/u/224534814?v=4" alt="GitHub avatar for jakubgoscinny-creator">
-        <span class="eyebrow">Profile</span>
-        <h2>Creator account for experiments, delivery pages, and public showcases.</h2>
-        <p>
-          A compact GitHub presence with practical builds, client-facing demos,
-          and exploratory projects published as clean, accessible web artifacts.
-        </p>
-        <div class="profile-links">
-          <a href="https://github.com/jakubgoscinny-creator" target="_blank" rel="noreferrer">
-            <span>Open GitHub profile</span>
-            <span>github.com</span>
-          </a>
-          <a href="#projects">
-            <span>Jump to selected work</span>
-            <span>below</span>
-          </a>
+      <aside class="hero-panel">
+        <div class="panel-system-map" aria-hidden="true">
+          <span class="map-node map-node-core">Operational clarity</span>
+          <span class="map-node map-node-a">Portal UI</span>
+          <span class="map-node map-node-b">Automation</span>
+          <span class="map-node map-node-c">Data layer</span>
+          <span class="map-node map-node-d">AI assist</span>
+          <span class="map-line map-line-a"></span>
+          <span class="map-line map-line-b"></span>
+          <span class="map-line map-line-c"></span>
+          <span class="map-line map-line-d"></span>
         </div>
+
+        <div class="panel-copy">
+          <p class="panel-label">Current working pattern</p>
+          <h2>Software that makes a system legible before it gets expensive.</h2>
+          <p>
+            The GitHub footprint is strongest where interfaces meet process: portal concepts,
+            decision-support tools, polished static artifacts, and fuller product builds when
+            the workflow needs data, auth, or typed application structure.
+          </p>
+        </div>
+
+        <dl class="panel-metrics">
+          <div>
+            <dt>Mode</dt>
+            <dd>Builder with product discipline</dd>
+          </div>
+          <div>
+            <dt>Shape</dt>
+            <dd>Portal, workflow, demo, operator UI</dd>
+          </div>
+          <div>
+            <dt>Bias</dt>
+            <dd>Practical transformation over theatre</dd>
+          </div>
+        </dl>
       </aside>
     </section>
 
-    <section id="projects">
-      <div class="section-head rise">
-        <div>
-          <span class="eyebrow">Selected Public Work</span>
-          <h2>Current highlights</h2>
-        </div>
-        <p>
-          A mix of portfolio-style demos, practical tools, and content-rich web projects.
-          Each card links directly to the repository so visitors can explore code, context, and output.
-        </p>
+    <section class="section shell" id="about">
+      <div class="section-header reveal">
+        <p class="eyebrow">What I do</p>
+        <h2>Business systems should feel usable, explainable, and operationally sharp.</h2>
       </div>
 
-      <div class="projects">
-        <a class="card rise" href="https://github.com/jakubgoscinny-creator/zcg-dispo-hub-demo" target="_blank" rel="noreferrer">
-          <span class="tag">Interactive Demo</span>
+      <div class="split-copy">
+        <p class="reveal" data-delay="40">
+          I am most useful when the brief is not “make a website”, but “make the workflow make
+          sense”. That usually means portal interfaces, proposal hubs, operator surfaces,
+          decision tools, or automation layers around an existing process. The job is to turn a
+          messy operational reality into software that people can actually trust.
+        </p>
+        <p class="reveal" data-delay="100">
+          Sometimes that output is a self-contained HTML artifact that clarifies the system fast.
+          Sometimes it grows into a fuller application with Next.js, TypeScript, a database
+          layer, and document generation. The constant is systems thinking, delivery depth, and a
+          preference for concrete utility over empty innovation language.
+        </p>
+      </div>
+    </section>
+
+    <section class="section shell" id="selected-work">
+      <div class="section-header reveal">
+        <p class="eyebrow">Selected work</p>
+        <h2>Public projects that best show the operating model.</h2>
+      </div>
+
+      <div class="work-grid">
+        <article class="work-card work-card-featured reveal">
+          <div class="work-card-head">
+            <span class="pill">Portal demo</span>
+            <span class="work-year">2026</span>
+          </div>
           <h3>ZCG Disposition Hub</h3>
-          <p>Proposal-grade portal mockup for real estate operations with workflow views, underwriting, buyer data, and campaign flows.</p>
-          <footer>
-            <span>Updated Apr 2026</span>
-            <span class="cta">Open repo <span aria-hidden="true">↗</span></span>
-          </footer>
-        </a>
+          <p>
+            A Podio-first disposition portal concept for wholesale real estate, built as a single
+            polished artifact with a deal board, buyer database, campaign builder, workflow
+            engine, and AI underwriting concept.
+          </p>
+          <ul class="tag-list" aria-label="ZCG project tags">
+            <li>Podio-first</li>
+            <li>Workflow engine</li>
+            <li>AI underwriting concept</li>
+          </ul>
+          <div class="card-actions">
+            <a href="https://github.com/jakubgoscinny-creator/zcg-dispo-hub-demo" target="_blank" rel="noreferrer">Repository</a>
+            <a href="https://jakubgoscinny-creator.github.io/zcg-dispo-hub-demo/" target="_blank" rel="noreferrer">Live demo</a>
+          </div>
+        </article>
 
-        <a class="card rise" href="https://github.com/jakubgoscinny-creator/bar-gora-3d" target="_blank" rel="noreferrer">
-          <span class="tag">3D Planning</span>
-          <h3>Bar Góra 3D</h3>
-          <p>Spatial planning work for an attic layout with A-frame constraints and practical object placement.</p>
-          <footer>
-            <span>Updated Apr 2026</span>
-            <span class="cta">Open repo <span aria-hidden="true">↗</span></span>
-          </footer>
-        </a>
+        <article class="work-card reveal" data-delay="60">
+          <div class="work-card-head">
+            <span class="pill">Full product build</span>
+            <span class="work-year">2026</span>
+          </div>
+          <h3>CCO Platform</h3>
+          <p>
+            A fuller web application for certification exam simulation, showing the move beyond
+            static pages into Next.js, TypeScript, Drizzle, Neon, and PDF-capable product
+            architecture.
+          </p>
+          <div class="card-actions">
+            <a href="https://github.com/jakubgoscinny-creator/cco-platform" target="_blank" rel="noreferrer">Repository</a>
+          </div>
+        </article>
 
-        <a class="card rise" href="https://github.com/jakubgoscinny-creator/o-choinka-2025" target="_blank" rel="noreferrer">
-          <span class="tag">Browser Game</span>
-          <h3>O Choinka! 2025</h3>
-          <p>A festive interactive game built for a cause: playful, lightweight, and designed to feel alive in the browser.</p>
-          <footer>
-            <span>Updated Mar 2026</span>
-            <span class="cta">Open repo <span aria-hidden="true">↗</span></span>
-          </footer>
-        </a>
+        <article class="work-card reveal" data-delay="120">
+          <div class="work-card-head">
+            <span class="pill">Premium MVP</span>
+            <span class="work-year">2026</span>
+          </div>
+          <h3>Stock AIgent</h3>
+          <p>
+            A luxury-feeling static MVP for a finance-flavoured AI product. Strong signal for
+            product positioning, premium interface treatment, and low-overhead prototyping.
+          </p>
+          <div class="card-actions">
+            <a href="https://github.com/jakubgoscinny-creator/stock-aigent" target="_blank" rel="noreferrer">Repository</a>
+          </div>
+        </article>
 
-        <a class="card rise" href="https://github.com/jakubgoscinny-creator/Dom" target="_blank" rel="noreferrer">
-          <span class="tag">Operations</span>
-          <h3>Dom</h3>
-          <p>A home-focused system for renovation logistics, finances, purchases, and living documentation.</p>
-          <footer>
-            <span>Updated Mar 2026</span>
-            <span class="cta">Open repo <span aria-hidden="true">↗</span></span>
-          </footer>
-        </a>
+        <article class="work-card reveal">
+          <div class="work-card-head">
+            <span class="pill">Automation note</span>
+            <span class="work-year">2026</span>
+          </div>
+          <h3>Windows Operator</h3>
+          <p>
+            A technical article and interface piece about the moment where browser automation is
+            no longer enough and AI tooling needs desktop-level control.
+          </p>
+          <div class="card-actions">
+            <a href="https://github.com/jakubgoscinny-creator/windows-operator-blog" target="_blank" rel="noreferrer">Repository</a>
+          </div>
+        </article>
 
-        <a class="card rise" href="https://github.com/jakubgoscinny-creator/bydgoszcz-city-game" target="_blank" rel="noreferrer">
-          <span class="tag">City Experience</span>
-          <h3>Bydgoszcz City Game</h3>
-          <p>A family-friendly digital city walk through Bydgoszcz, blending place, movement, and guided exploration.</p>
-          <footer>
-            <span>Updated Mar 2026</span>
-            <span class="cta">Open repo <span aria-hidden="true">↗</span></span>
-          </footer>
-        </a>
-
-        <a class="card rise" href="https://github.com/jakubgoscinny-creator/windows-operator-blog" target="_blank" rel="noreferrer">
-          <span class="tag">Automation Writing</span>
-          <h3>Windows Operator Blog</h3>
-          <p>Public writing around AI-driven Windows desktop automation and the workflows that make it practical.</p>
-          <footer>
-            <span>Updated Mar 2026</span>
-            <span class="cta">Open repo <span aria-hidden="true">↗</span></span>
-          </footer>
-        </a>
+        <article class="work-card reveal" data-delay="60">
+          <div class="work-card-head">
+            <span class="pill">Decision tool</span>
+            <span class="work-year">2026</span>
+          </div>
+          <h3>AI PC Compare Bydgoszcz</h3>
+          <p>
+            A static decision-support site for comparing workstations for AI and development,
+            structured around trade-offs, service constraints, and recommendation logic.
+          </p>
+          <div class="card-actions">
+            <a href="https://github.com/jakubgoscinny-creator/ai-pc-compare-bydgoszcz" target="_blank" rel="noreferrer">Repository</a>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section class="summary">
-      <div class="summary-panel rise">
-        <span class="eyebrow">Why This Page Exists</span>
-        <h3>A cleaner profile surface.</h3>
-        <p>
-          GitHub repositories are great for depth, but not always for first impressions.
-          This page gives the account a stable, readable entry point: one URL, a clear tone,
-          and direct paths into the most interesting public work.
-        </p>
+    <section class="section shell" id="capabilities">
+      <div class="section-header reveal">
+        <p class="eyebrow">Capabilities</p>
+        <h2>Where I add the most value.</h2>
       </div>
 
-      <div class="summary-panel rise">
-        <span class="eyebrow">At A Glance</span>
-        <h3>Publishing profile</h3>
-        <div class="list">
-          <div><strong>Base</strong><span>Static HTML hosted directly through GitHub Pages.</span></div>
-          <div><strong>Content</strong><span>Selected repositories with short contextual descriptions.</span></div>
-          <div><strong>Use</strong><span>Portfolio link, profile homepage, and a simpler public landing point.</span></div>
+      <div class="capability-grid">
+        <article class="capability-card reveal">
+          <h3>Workflow portals</h3>
+          <p>
+            Operator-first interfaces that make status, next actions, and business logic visible
+            instead of hiding them in process debt.
+          </p>
+        </article>
+        <article class="capability-card reveal" data-delay="60">
+          <h3>Automation system design</h3>
+          <p>
+            Turning manual steps into reliable flows without losing readability, control, or the
+            human judgement points that still matter.
+          </p>
+        </article>
+        <article class="capability-card reveal" data-delay="120">
+          <h3>AI-assisted operational tools</h3>
+          <p>
+            Practical AI layers for drafting, comparison, estimation, or recommendation work that
+            needs to live inside a real workflow rather than beside it.
+          </p>
+        </article>
+        <article class="capability-card reveal" data-delay="180">
+          <h3>High-trust prototypes</h3>
+          <p>
+            Premium demos and lightweight product artifacts that help teams validate the shape of
+            a system before they commit to heavy implementation.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section shell" id="tooling">
+      <div class="section-header reveal">
+        <p class="eyebrow">Tooling and stack</p>
+        <h2>Chosen for clarity, speed, and maintainability.</h2>
+      </div>
+
+      <div class="tooling-grid">
+        <article class="tool-group reveal">
+          <h3>Workflow and ops</h3>
+          <ul class="chip-list">
+            <li>Podio</li>
+            <li>ProcFu-style portals</li>
+            <li>Operator flows</li>
+            <li>Proposal hubs</li>
+            <li>Decision support</li>
+          </ul>
+        </article>
+        <article class="tool-group reveal" data-delay="60">
+          <h3>Frontend</h3>
+          <ul class="chip-list">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>React</li>
+            <li>Next.js</li>
+            <li>TypeScript</li>
+          </ul>
+        </article>
+        <article class="tool-group reveal" data-delay="120">
+          <h3>Data and backend</h3>
+          <ul class="chip-list">
+            <li>Drizzle ORM</li>
+            <li>Neon</li>
+            <li>Typed schemas</li>
+            <li>Document generation</li>
+            <li>Auth-ready app structure</li>
+          </ul>
+        </article>
+        <article class="tool-group reveal" data-delay="180">
+          <h3>Automation and AI</h3>
+          <ul class="chip-list">
+            <li>Workflow automation</li>
+            <li>Browser tooling</li>
+            <li>Desktop automation concepts</li>
+            <li>AI-assisted UX</li>
+            <li>Prompt-driven delivery</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section shell" id="principles">
+      <div class="section-header reveal">
+        <p class="eyebrow">Operating principles</p>
+        <h2>The work should reduce ambiguity, not decorate it.</h2>
+      </div>
+
+      <div class="principle-grid">
+        <article class="principle-card reveal">
+          <h3>Make state visible</h3>
+          <p>
+            Good operational software should show what is happening, what is blocked, and what
+            happens next without making the user decode the system.
+          </p>
+        </article>
+        <article class="principle-card reveal" data-delay="60">
+          <h3>Reduce decision latency</h3>
+          <p>
+            The best tools tighten the loop between seeing the situation, choosing a direction,
+            and taking action.
+          </p>
+        </article>
+        <article class="principle-card reveal" data-delay="120">
+          <h3>Build for operators, not slides</h3>
+          <p>
+            A beautiful interface matters, but it earns its keep only when it supports real work,
+            real judgement, and real constraints.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section shell" id="brief">
+      <div class="section-header reveal">
+        <p class="eyebrow">Project idea wizard</p>
+        <h2>Turn a rough project idea into a proposal-ready brief.</h2>
+      </div>
+
+      <div class="wizard-layout">
+        <section class="wizard-card reveal">
+          <div class="wizard-intro">
+            <p>
+              This is a fast scoping flow for visitors who already know the problem, but need a
+              clearer brief to discuss timeline, proposal shape, and budget range.
+            </p>
+            <p class="wizard-runtime">Usually 3 minutes. No backend. Your summary stays in the browser until you copy or send it.</p>
+          </div>
+
+          <ol class="wizard-steps" aria-label="Wizard steps">
+            <li class="is-active">1. Project shape</li>
+            <li>2. Current workflow</li>
+            <li>3. Outcomes and constraints</li>
+            <li>4. Decision context</li>
+          </ol>
+
+          <form class="wizard-form" id="briefWizard">
+            <fieldset class="wizard-step is-active" data-step="0">
+              <legend>Project shape</legend>
+              <label class="field">
+                <span>Project name or working label</span>
+                <input type="text" name="projectName" maxlength="80" placeholder="Quoting portal refresh, intake workflow, AI triage layer...">
+              </label>
+
+              <div class="field-grid">
+                <label class="field">
+                  <span>What kind of project is it?</span>
+                  <select name="projectType">
+                    <option value="">Choose project shape</option>
+                    <option>Workflow portal</option>
+                    <option>Operational dashboard</option>
+                    <option>Automation layer</option>
+                    <option>AI-assisted tool</option>
+                    <option>Decision-support app</option>
+                    <option>Product prototype</option>
+                    <option>Business system redesign</option>
+                  </select>
+                </label>
+
+                <label class="field">
+                  <span>Who will use it most?</span>
+                  <input type="text" name="primaryUsers" placeholder="Operators, sales team, coordinators, founders...">
+                </label>
+              </div>
+
+              <fieldset class="choice-group">
+                <legend>What should this turn into?</legend>
+                <div class="choice-grid">
+                  <label class="check-chip"><input type="checkbox" name="deliverables" value="Portal or dashboard">Portal or dashboard</label>
+                  <label class="check-chip"><input type="checkbox" name="deliverables" value="Workflow automation">Workflow automation</label>
+                  <label class="check-chip"><input type="checkbox" name="deliverables" value="AI assistant or recommendation layer">AI assistant or recommendation layer</label>
+                  <label class="check-chip"><input type="checkbox" name="deliverables" value="Clickable prototype">Clickable prototype</label>
+                  <label class="check-chip"><input type="checkbox" name="deliverables" value="Spec and phased proposal">Spec and phased proposal</label>
+                </div>
+              </fieldset>
+            </fieldset>
+
+            <fieldset class="wizard-step" data-step="1">
+              <legend>Current workflow</legend>
+              <label class="field">
+                <span>Main bottleneck</span>
+                <textarea name="currentState" rows="4" placeholder="What is slow, messy, manual, unclear, duplicated, or blocking decisions today?"></textarea>
+              </label>
+
+              <label class="field">
+                <span>What happens today?</span>
+                <textarea name="workflowReality" rows="4" placeholder="Describe the current process in simple terms: who does what, where work gets stuck, and what tools are involved."></textarea>
+              </label>
+
+              <fieldset class="choice-group">
+                <legend>What systems are already in the picture?</legend>
+                <div class="choice-grid">
+                  <label class="check-chip"><input type="checkbox" name="systems" value="Podio">Podio</label>
+                  <label class="check-chip"><input type="checkbox" name="systems" value="ProcFu">ProcFu</label>
+                  <label class="check-chip"><input type="checkbox" name="systems" value="Spreadsheets">Spreadsheets</label>
+                  <label class="check-chip"><input type="checkbox" name="systems" value="Email or chat">Email or chat</label>
+                  <label class="check-chip"><input type="checkbox" name="systems" value="Custom web app">Custom web app</label>
+                  <label class="check-chip"><input type="checkbox" name="systems" value="AI tools">AI tools</label>
+                </div>
+              </fieldset>
+
+              <label class="field">
+                <span>What must stay in place?</span>
+                <input type="text" name="mustKeep" placeholder="Existing tool, process rule, approval path, compliance constraint...">
+              </label>
+            </fieldset>
+
+            <fieldset class="wizard-step" data-step="2">
+              <legend>Outcomes and constraints</legend>
+              <label class="field">
+                <span>What outcome would make this worth doing?</span>
+                <textarea name="desiredOutcome" rows="4" placeholder="Describe the operational result you want: faster turnaround, clearer visibility, fewer handoffs, stronger proposal flow..."></textarea>
+              </label>
+
+              <div class="field-grid">
+                <label class="field">
+                  <span>Desired timeline</span>
+                  <select name="timeline">
+                    <option value="">Choose timeline</option>
+                    <option>Urgent: within 2-4 weeks</option>
+                    <option>Near term: within 1-2 months</option>
+                    <option>Quarter-scale: within 3-4 months</option>
+                    <option>Flexible / exploratory</option>
+                  </select>
+                </label>
+
+                <label class="field">
+                  <span>Budget shape</span>
+                  <select name="budget">
+                    <option value="">Choose budget range</option>
+                    <option>Discovery-first / not fixed yet</option>
+                    <option>Lean MVP budget</option>
+                    <option>Mid-range operational build</option>
+                    <option>Larger phased implementation</option>
+                  </select>
+                </label>
+              </div>
+
+              <fieldset class="choice-group">
+                <legend>What should a proposal answer?</legend>
+                <div class="choice-grid">
+                  <label class="check-chip"><input type="checkbox" name="proposalNeeds" value="Scope options">Scope options</label>
+                  <label class="check-chip"><input type="checkbox" name="proposalNeeds" value="Phased delivery plan">Phased delivery plan</label>
+                  <label class="check-chip"><input type="checkbox" name="proposalNeeds" value="Integration risks">Integration risks</label>
+                  <label class="check-chip"><input type="checkbox" name="proposalNeeds" value="Timeline scenarios">Timeline scenarios</label>
+                  <label class="check-chip"><input type="checkbox" name="proposalNeeds" value="Budget scenarios">Budget scenarios</label>
+                  <label class="check-chip"><input type="checkbox" name="proposalNeeds" value="Prototype recommendation">Prototype recommendation</label>
+                </div>
+              </fieldset>
+            </fieldset>
+
+            <fieldset class="wizard-step" data-step="3">
+              <legend>Decision context</legend>
+              <div class="field-grid">
+                <label class="field">
+                  <span>Who decides or sponsors this?</span>
+                  <input type="text" name="decisionMaker" placeholder="Founder, ops lead, sales director, internal sponsor...">
+                </label>
+
+                <label class="field">
+                  <span>How clear is the scope today?</span>
+                  <select name="confidence">
+                    <option value="">Choose current clarity</option>
+                    <option>Clear enough to estimate</option>
+                    <option>Partly clear, needs shaping</option>
+                    <option>Still exploratory / problem-first</option>
+                  </select>
+                </label>
+              </div>
+
+              <label class="field">
+                <span>Anything a proposal should not miss?</span>
+                <textarea name="additionalContext" rows="4" placeholder="Dependencies, internal politics, compliance, rollout worries, team adoption, or anything else that changes the proposal."></textarea>
+              </label>
+            </fieldset>
+
+            <div class="wizard-actions">
+              <button class="button button-secondary" type="button" id="briefBack" disabled>Back</button>
+              <button class="button button-primary" type="button" id="briefNext">Next step</button>
+            </div>
+          </form>
+        </section>
+
+        <aside class="brief-summary reveal" data-delay="100">
+          <p class="panel-label">Proposal seed</p>
+          <h3>Your summary updates live as you fill the wizard.</h3>
+          <div class="brief-output" id="briefOutput" aria-live="polite"></div>
+          <p class="summary-note" id="briefRecommendation">
+            Suggested first move: start with a lightweight brief so timeline and budget can be discussed against a shared understanding of the workflow.
+          </p>
+          <div class="summary-actions">
+            <button class="button button-secondary" type="button" id="copyBrief">Copy brief</button>
+            <a
+              class="button button-primary"
+              id="issueLink"
+              href="https://github.com/jakubgoscinny-creator/jakubgoscinny-creator.github.io/issues/new?title=Project%20inquiry"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Send as GitHub inquiry
+            </a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section shell" id="contact">
+      <div class="contact-card reveal">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>If the workflow is messy, that is usually the brief.</h2>
+          <p class="contact-copy">
+            Best first step: use the project idea wizard above and turn rough context into a
+            cleaner brief. If you already know what you need, GitHub is still the public front
+            door for starting the conversation.
+          </p>
+        </div>
+        <div class="hero-actions">
+          <a
+            class="button button-primary"
+            href="https://github.com/jakubgoscinny-creator"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Review repositories
+          </a>
+          <a
+            class="button button-secondary"
+            href="https://github.com/jakubgoscinny-creator/jakubgoscinny-creator.github.io/issues/new?title=Project%20inquiry"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Start a GitHub conversation
+          </a>
         </div>
       </div>
     </section>
+  </main>
 
-    <footer class="footerline rise">
-      <span>&copy; <span id="year"></span> jakubgoscinny-creator</span>
-      <a href="https://github.com/jakubgoscinny-creator" target="_blank" rel="noreferrer">View the full GitHub account</a>
-    </footer>
-  </div>
+  <footer class="site-footer">
+    <div class="shell site-footer-inner">
+      <p>
+        Built as a static GitHub Pages site with plain HTML, CSS, and JavaScript for long-term
+        maintainability.
+      </p>
+      <div class="footer-links">
+        <a href="https://github.com/jakubgoscinny-creator" target="_blank" rel="noreferrer">GitHub profile</a>
+        <a href="https://github.com/jakubgoscinny-creator?tab=repositories" target="_blank" rel="noreferrer">Repositories</a>
+        <span>Updated <span id="year"></span></span>
+      </div>
+    </div>
+  </footer>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Jakub Goscinny",
+      "url": "https://jakubgoscinny-creator.github.io/",
+      "sameAs": [
+        "https://github.com/jakubgoscinny-creator"
+      ],
+      "jobTitle": "Systems designer and automation consultant",
+      "knowsAbout": [
+        "Workflow portals",
+        "Automation systems",
+        "Podio",
+        "ProcFu",
+        "AI-assisted tools",
+        "Business systems"
+      ]
+    }
   </script>
+  <script src="script.js" defer></script>
 </body>
 </html>
