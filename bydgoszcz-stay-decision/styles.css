@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 :root {
   --display-font: "Fraunces", serif;
   --body-font: "IBM Plex Sans", sans-serif;
@@ -16,6 +17,34 @@
   --shadow-soft: 0 1.4rem 3rem rgba(11, 41, 96, 0.12);
   --shadow-strong: 0 1.6rem 3rem rgba(7, 27, 77, 0.22);
   --radius-xl: 1.8rem;
+=======
+﻿:root {
+  --paper: #f4f0e8;
+  --paper-strong: #ece5d7;
+  --surface: rgba(255, 251, 245, 0.86);
+  --surface-strong: rgba(255, 255, 255, 0.94);
+  --ink: #14222b;
+  --muted: #57636c;
+  --line: rgba(20, 34, 43, 0.12);
+  --line-strong: rgba(20, 34, 43, 0.22);
+  --river: #1d5867;
+  --river-soft: #e0edf0;
+  --brick: #b25438;
+  --olive: #5e745d;
+  --gold: #b88a2f;
+  --good: #dff1e4;
+  --good-ink: #1f6a3f;
+  --neutral: #fff1cf;
+  --neutral-ink: #946a15;
+  --bad: #f7ddd8;
+  --bad-ink: #8d3d2d;
+  --shadow: 0 30px 90px rgba(20, 34, 43, 0.14);
+  --radius-xl: 28px;
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --display: "Fraunces", serif;
+  --body: "Instrument Sans", sans-serif;
+>>>>>>> origin/main
 }
 
 *,
@@ -30,6 +59,7 @@ html {
 
 body {
   margin: 0;
+<<<<<<< HEAD
   min-width: 320px;
   min-height: 100vh;
   font-family: var(--body-font);
@@ -39,12 +69,22 @@ body {
     radial-gradient(circle at top left, rgba(47, 111, 203, 0.18), transparent 25%),
     radial-gradient(circle at top right, rgba(217, 66, 82, 0.14), transparent 20%),
     linear-gradient(180deg, #f7fbff 0%, #f2f7ff 46%, #fbfdff 100%);
+=======
+  font-family: var(--body);
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, rgba(184, 138, 47, 0.2), transparent 28%),
+    radial-gradient(circle at 85% 12%, rgba(29, 88, 103, 0.16), transparent 22%),
+    linear-gradient(180deg, var(--paper), #faf6ef 42%, var(--paper-strong));
+  min-height: 100vh;
+>>>>>>> origin/main
 }
 
 body::before {
   content: "";
   position: fixed;
   inset: 0;
+<<<<<<< HEAD
   z-index: 0;
   pointer-events: none;
   background:
@@ -59,6 +99,15 @@ button,
 input,
 select {
   font: inherit;
+=======
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(20, 34, 43, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 34, 43, 0.03) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.72), transparent 88%);
+  opacity: 0.5;
+>>>>>>> origin/main
 }
 
 img {
@@ -66,6 +115,7 @@ img {
   max-width: 100%;
 }
 
+<<<<<<< HEAD
 .app-shell {
   position: relative;
   z-index: 1;
@@ -186,10 +236,55 @@ img {
 
 .chrome-progress {
   color: var(--city-red-700);
+=======
+a {
+  color: inherit;
+}
+
+button,
+select,
+input {
+  font: inherit;
+}
+
+.page-shell {
+  width: min(1220px, calc(100vw - 28px));
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.88rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.brand-mark {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--brick), var(--river));
+  box-shadow: 0 0 0 6px rgba(29, 88, 103, 0.1);
+>>>>>>> origin/main
 }
 
 .topnav {
   display: flex;
+<<<<<<< HEAD
   flex-wrap: wrap;
   gap: 0.6rem;
   justify-content: flex-end;
@@ -222,6 +317,86 @@ img {
 
 .hero-panel,
 .memory-banner,
+=======
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 0.92rem;
+}
+
+.topnav a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.hero,
+.decision-layout {
+  display: grid;
+  gap: 22px;
+}
+
+.hero {
+  padding: 34px 0 18px;
+}
+
+.eyebrow,
+.panel-kicker,
+.signal-label {
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.74rem;
+  color: var(--muted);
+}
+
+.hero h1,
+.section-heading h2,
+.hero-panel h2,
+.decision-main h3,
+.ranking-head h3,
+.source-section h3 {
+  font-family: var(--display);
+  margin: 0;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+
+.hero h1 {
+  font-size: clamp(3.2rem, 10vw, 6.8rem);
+  max-width: 10ch;
+  margin-top: 12px;
+}
+
+.subtitle {
+  margin: 16px 0 0;
+  font-size: clamp(1.1rem, 3vw, 1.55rem);
+  font-weight: 600;
+  color: var(--river);
+}
+
+.hero-text,
+.decision-main p,
+.ranking-head p,
+.source-section p,
+.method-note p,
+.footer span {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.hero-text {
+  max-width: 60ch;
+  margin: 18px 0 0;
+  font-size: 1rem;
+}
+
+.hero-signals {
+  display: grid;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.signal-card,
+.hero-panel,
+>>>>>>> origin/main
 .decision-main,
 .decision-ranking,
 .controls-panel,
@@ -229,6 +404,7 @@ img {
 .card-item,
 .insight-card,
 .source-grid article,
+<<<<<<< HEAD
 .project-note {
   border: 1px solid var(--city-line);
   border-radius: var(--radius-xl);
@@ -351,6 +527,58 @@ h3 {
 .score-chip,
 .status-chip,
 .table-badge {
+=======
+.method-note,
+.footer {
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, var(--surface-strong), var(--surface));
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(16px);
+}
+
+.signal-card,
+.source-grid article {
+  padding: 18px;
+  border-radius: var(--radius-md);
+}
+
+.signal-card strong {
+  display: block;
+  margin-top: 10px;
+  font-size: 1.04rem;
+}
+
+.signal-card span:last-child {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+}
+
+.hero-panel {
+  padding: 22px;
+  border-radius: var(--radius-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-panel::after {
+  content: "";
+  position: absolute;
+  right: -40px;
+  bottom: -46px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(29, 88, 103, 0.18), transparent 68%);
+}
+
+.hero-pill,
+.decision-badge,
+.table-badge,
+.score-chip,
+.status-chip,
+.price-meta {
+>>>>>>> origin/main
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -358,6 +586,7 @@ h3 {
   font-weight: 700;
 }
 
+<<<<<<< HEAD
 .badge {
   padding: 0.55rem 0.9rem;
   font-size: 0.92rem;
@@ -553,6 +782,73 @@ h3 {
 
 .section-copy-tight {
   max-width: 34ch;
+=======
+.hero-pill,
+.decision-badge {
+  padding: 9px 15px;
+  background: rgba(223, 241, 228, 0.88);
+  color: var(--good-ink);
+  font-size: 0.88rem;
+  margin-top: 10px;
+}
+
+.hero-panel h2 {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  max-width: 10ch;
+  margin-top: 18px;
+}
+
+.hero-panel p {
+  margin-top: 14px;
+  max-width: 38ch;
+}
+
+.decision-metrics {
+  display: grid;
+  gap: 12px;
+  margin: 22px 0 0;
+  position: relative;
+  z-index: 1;
+}
+
+.decision-metrics div {
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.decision-metrics dt {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.decision-metrics dd {
+  margin: 6px 0 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.method-note {
+  margin-top: 18px;
+  padding: 18px 20px;
+  border-radius: var(--radius-md);
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.section-heading h2 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  max-width: 12ch;
+>>>>>>> origin/main
 }
 
 .decision-section,
@@ -560,6 +856,7 @@ h3 {
 .cards-section,
 .insights-section,
 .source-section {
+<<<<<<< HEAD
   display: grid;
   gap: 1rem;
 }
@@ -580,18 +877,32 @@ h3 {
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(330px, 0.92fr);
   gap: 1rem;
+=======
+  padding: 42px 0 0;
+>>>>>>> origin/main
 }
 
 .decision-main,
 .decision-ranking,
 .controls-panel,
 .table-wrap,
+<<<<<<< HEAD
 .project-note {
   padding: 1.25rem;
+=======
+.footer {
+  border-radius: var(--radius-xl);
+}
+
+.decision-main,
+.decision-ranking {
+  padding: 22px;
+>>>>>>> origin/main
 }
 
 .decision-main h3 {
   font-size: clamp(1.9rem, 4vw, 3rem);
+<<<<<<< HEAD
   max-width: 12ch;
 }
 
@@ -613,10 +924,51 @@ h3 {
 .ranking-head {
   display: grid;
   gap: 0.35rem;
+=======
+  margin-top: 18px;
+  max-width: 12ch;
+}
+
+.decision-reason,
+.decision-main p {
+  max-width: 58ch;
+}
+
+.decision-points {
+  display: grid;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.decision-points div {
+  padding: 16px 18px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.56);
+}
+
+.decision-points span,
+.ranking-item small,
+.card-meta,
+.insight-label,
+.source-grid h3 {
+  display: block;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.decision-points p,
+.insight-card p,
+.card-item p {
+  margin: 8px 0 0;
+>>>>>>> origin/main
 }
 
 .ranking-list {
   display: grid;
+<<<<<<< HEAD
   gap: 0.85rem;
   margin-top: 1rem;
 }
@@ -632,10 +984,40 @@ h3 {
 
 .ranking-item strong {
   font-size: 1.08rem;
+=======
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.ranking-item {
+  padding: 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.ranking-item strong {
+  display: block;
+  font-size: 1.12rem;
+  margin-top: 7px;
+}
+
+.ranking-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.ranking-actions,
+.card-actions {
+  margin-top: 16px;
+>>>>>>> origin/main
 }
 
 .score-chip,
 .status-chip,
+<<<<<<< HEAD
 .table-badge {
   padding: 0.45rem 0.7rem;
   font-size: 0.8rem;
@@ -644,35 +1026,128 @@ h3 {
 .score-chip {
   background: rgba(18, 74, 161, 0.08);
   color: var(--city-blue-900);
+=======
+.price-meta,
+.table-badge {
+  padding: 6px 10px;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+}
+
+.score-chip {
+  background: var(--river-soft);
+  color: var(--river);
+>>>>>>> origin/main
 }
 
 .status-chip.is-upgrade,
 .table-badge.is-upgrade {
+<<<<<<< HEAD
   background: rgba(47, 111, 203, 0.12);
   color: var(--city-blue-900);
+=======
+  background: var(--good);
+  color: var(--good-ink);
+>>>>>>> origin/main
 }
 
 .status-chip.is-consider,
 .table-badge.is-consider {
+<<<<<<< HEAD
   background: rgba(217, 66, 82, 0.12);
   color: var(--city-red-700);
+=======
+  background: var(--neutral);
+  color: var(--neutral-ink);
+>>>>>>> origin/main
 }
 
 .status-chip.is-keep,
 .table-badge.is-keep {
+<<<<<<< HEAD
   background: rgba(16, 32, 60, 0.08);
   color: var(--city-ink);
+=======
+  background: rgba(29, 88, 103, 0.12);
+  color: var(--river);
+}
+
+.price-meta {
+  background: rgba(20, 34, 43, 0.08);
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.comparison-head h2 {
+  max-width: 12ch;
+}
+
+.comparison-count {
+  margin: 0;
+  color: var(--muted);
+}
+
+.offer-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(29, 88, 103, 0.16);
+  background: linear-gradient(135deg, rgba(29, 88, 103, 0.96), rgba(22, 64, 76, 0.96));
+  color: #f8fbfc;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 16px 30px rgba(29, 88, 103, 0.2);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.offer-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 20px 36px rgba(29, 88, 103, 0.24);
+}
+
+.offer-link:focus-visible {
+  outline: 3px solid rgba(184, 138, 47, 0.36);
+  outline-offset: 2px;
+}
+
+.offer-link--muted {
+  border-color: var(--line);
+  background: rgba(20, 34, 43, 0.08);
+  color: var(--muted);
+  box-shadow: none;
+}
+
+.offer-link--muted:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.offer-link--table {
+  width: 100%;
+  min-width: 116px;
+>>>>>>> origin/main
 }
 
 .controls-panel {
   display: flex;
   flex-wrap: wrap;
+<<<<<<< HEAD
   align-items: center;
   gap: 0.85rem;
+=======
+  gap: 12px;
+  align-items: center;
+  padding: 18px;
+>>>>>>> origin/main
 }
 
 .control-field {
   display: grid;
+<<<<<<< HEAD
   gap: 0.45rem;
   min-width: 180px;
 }
@@ -683,11 +1158,29 @@ h3 {
   background: rgba(255, 255, 255, 0.95);
   color: var(--city-ink);
   padding: 0.85rem 1rem;
+=======
+  gap: 8px;
+  min-width: 180px;
+}
+
+.control-field span {
+  font-size: 0.86rem;
+  color: var(--muted);
+}
+
+.control-field select {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--ink);
+  padding: 10px 14px;
+>>>>>>> origin/main
 }
 
 .toggle-chip {
   display: inline-flex;
   align-items: center;
+<<<<<<< HEAD
   gap: 0.65rem;
   min-height: 3rem;
   padding: 0.75rem 1rem;
@@ -704,19 +1197,42 @@ h3 {
 }
 
 .table-wrap {
+=======
+  gap: 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.68);
+  cursor: pointer;
+  user-select: none;
+}
+
+.toggle-chip input {
+  accent-color: var(--river);
+}
+
+.table-wrap {
+  margin-top: 16px;
+>>>>>>> origin/main
   overflow: auto;
 }
 
 table {
   width: 100%;
+<<<<<<< HEAD
   min-width: 1080px;
   border-collapse: collapse;
+=======
+  border-collapse: collapse;
+  min-width: 1000px;
+>>>>>>> origin/main
 }
 
 thead th {
   position: sticky;
   top: 0;
   z-index: 2;
+<<<<<<< HEAD
   padding: 1rem 0.9rem;
   text-align: left;
   background: rgba(241, 246, 255, 0.98);
@@ -724,10 +1240,18 @@ thead th {
   font-size: 0.78rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
+=======
+  background: rgba(244, 240, 232, 0.96);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+>>>>>>> origin/main
 }
 
 th,
 td {
+<<<<<<< HEAD
   padding: 1rem 0.9rem;
   text-align: left;
   vertical-align: top;
@@ -748,6 +1272,28 @@ tbody tr.is-current {
 
 tbody tr.is-better {
   background: rgba(47, 111, 203, 0.05);
+=======
+  padding: 16px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+tbody tr {
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+tbody tr:hover {
+  background: rgba(255, 255, 255, 0.64);
+}
+
+tbody tr.is-current {
+  background: rgba(29, 88, 103, 0.08);
+}
+
+tbody tr.is-better {
+  background: rgba(223, 241, 228, 0.38);
+>>>>>>> origin/main
 }
 
 .property-cell strong,
@@ -757,8 +1303,19 @@ tbody tr.is-better {
   font-size: 1rem;
 }
 
+<<<<<<< HEAD
 .table-note {
   max-width: 30ch;
+=======
+.property-cell span,
+.table-note,
+.table-price small,
+.comfort-cell span {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 0.9rem;
+>>>>>>> origin/main
 }
 
 .comfort-cell {
@@ -766,11 +1323,19 @@ tbody tr.is-better {
 }
 
 .comfort-cell.is-yes {
+<<<<<<< HEAD
   color: var(--city-blue-900);
 }
 
 .comfort-cell.is-no {
   color: var(--city-red-700);
+=======
+  color: var(--good-ink);
+}
+
+.comfort-cell.is-no {
+  color: var(--bad-ink);
+>>>>>>> origin/main
 }
 
 .score-value {
@@ -778,6 +1343,7 @@ tbody tr.is-better {
 }
 
 .table-offer {
+<<<<<<< HEAD
   min-width: 240px;
 }
 
@@ -825,17 +1391,24 @@ tbody tr.is-better {
   width: 100%;
   font-size: 0.84rem;
   color: var(--city-muted);
+=======
+  min-width: 142px;
+>>>>>>> origin/main
 }
 
 .cards-grid,
 .insights-grid,
 .source-grid {
   display: grid;
+<<<<<<< HEAD
   gap: 1rem;
 }
 
 .cards-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+=======
+  gap: 18px;
+>>>>>>> origin/main
 }
 
 .card-item {
@@ -844,19 +1417,32 @@ tbody tr.is-better {
 
 .card-item img {
   width: 100%;
+<<<<<<< HEAD
   aspect-ratio: 16 / 10;
+=======
+  aspect-ratio: 16 / 11;
+>>>>>>> origin/main
   object-fit: cover;
 }
 
 .card-body {
+<<<<<<< HEAD
   display: grid;
   gap: 0.85rem;
   padding: 1.15rem;
+=======
+  padding: 18px;
+}
+
+.card-item h3 {
+  margin-top: 10px;
+>>>>>>> origin/main
 }
 
 .card-highlights {
   display: flex;
   flex-wrap: wrap;
+<<<<<<< HEAD
   gap: 0.55rem;
 }
 
@@ -897,14 +1483,53 @@ tbody tr.is-better {
   display: grid;
   gap: 0.45rem;
   padding: 1.15rem;
+=======
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.card-highlights span {
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(29, 88, 103, 0.1);
+  color: var(--river);
+  font-size: 0.84rem;
+}
+
+.card-why {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.insight-card {
+  padding: 20px;
+  border-radius: var(--radius-lg);
+}
+
+.insight-card h3 {
+  margin-top: 12px;
+}
+
+.source-grid article {
+>>>>>>> origin/main
   min-height: 100%;
 }
 
 .footer {
+<<<<<<< HEAD
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
+=======
+  margin: 44px 0 36px;
+  padding: 18px 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: center;
+>>>>>>> origin/main
 }
 
 .footer strong {
@@ -912,6 +1537,7 @@ tbody tr.is-better {
   font-size: 1.02rem;
 }
 
+<<<<<<< HEAD
 .footer-meta a {
   color: var(--city-blue-900);
   text-decoration: none;
@@ -943,10 +1569,67 @@ tbody tr.is-better {
 
   .app-chrome {
     grid-template-columns: minmax(0, 1fr);
+=======
+.footer-meta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.footer-meta a {
+  color: var(--river);
+  text-decoration: none;
+}
+
+@media (min-width: 720px) {
+  .hero {
+    grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+    align-items: start;
+  }
+
+  .hero-signals {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .decision-layout {
+    grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .insights-grid,
+  .source-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1040px) {
+  .cards-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .insights-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .source-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 719px) {
+  .topbar,
+  .section-heading,
+  .footer {
+    flex-direction: column;
+>>>>>>> origin/main
     align-items: start;
   }
 
   .topnav {
+<<<<<<< HEAD
     justify-content: flex-start;
   }
 
@@ -1004,5 +1687,18 @@ tbody tr.is-better {
   .offer-links {
     flex-direction: column;
     align-items: stretch;
+=======
+    gap: 12px;
+  }
+
+  .decision-main h3,
+  .section-heading h2,
+  .hero-panel h2 {
+    max-width: none;
+  }
+
+  .comparison-count {
+    margin-top: -4px;
+>>>>>>> origin/main
   }
 }
