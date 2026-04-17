@@ -9,19 +9,20 @@ const stays = [
     sleepsComfortably: false,
     locationScore: 5,
     valueScore: 3,
-    notes: "Already booked and central, but it is still the tightest layout for 2 adults and 2 children.",
+    notes: "Already booked and central, but still the tightest layout for 2 adults and 2 children.",
     verdict: "Keep",
-    offerUrl: "",
-    offerText: "Booked already",
+    directUrl: "",
+    bookingUrl: "https://www.booking.com/hotel/pl/dream-team-krolowej-jadwigi.html",
+    linkNote: "",
     isCurrent: true,
     betterThanCurrent: false,
     kidsPick: false,
     bestLocation: true,
     decisionRank: 99,
     cardRank: 99,
-    image: "",
-    highlights: ["Confirmed", "Prime walkability", "Smallest footprint"],
-    whyCard: "Useful only as the certainty benchmark."
+    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80",
+    highlights: ["Confirmed benchmark", "Prime walkability", "Smallest footprint"],
+    whyCard: "This is the low-risk baseline, not the best family layout."
   },
   {
     id: "jezuicka-24",
@@ -35,8 +36,9 @@ const stays = [
     valueScore: 5,
     notes: "Best all-round move: real family space, old-town feel, and the strongest value screen.",
     verdict: "Upgrade",
-    offerUrl: "https://booking-bydgoszcz.pl/offer/20/Apartament-Jezuicka-24",
-    offerText: "Open offer",
+    directUrl: "https://booking-bydgoszcz.pl/offer/20/Apartament-Jezuicka-24",
+    bookingUrl: "https://www.booking.com/hotel/pl/apartament-jezuicka-24.html",
+    linkNote: "",
     isCurrent: false,
     betterThanCurrent: true,
     kidsPick: true,
@@ -44,7 +46,7 @@ const stays = [
     decisionRank: 1,
     cardRank: 1,
     image: "https://booking-bydgoszcz.pl/images/objects/pictures/large/0/2/256.jpg",
-    highlights: ["55 m2", "Old-town walk", "Lowest-risk switch"],
+    highlights: ["55 m2", "Old-town walk", "Booking.com match"],
     whyCard: "It fixes the space problem without giving up the atmosphere Amy actually wants."
   },
   {
@@ -59,8 +61,9 @@ const stays = [
     valueScore: 4,
     notes: "A stronger old-town upgrade if Amy wants the most central feel without overshooting the current spend.",
     verdict: "Upgrade",
-    offerUrl: "https://booking-bydgoszcz.pl/offer/33/Apartament-Stary-Rynek-34C",
-    offerText: "Open offer",
+    directUrl: "https://booking-bydgoszcz.pl/offer/33/Apartament-Stary-Rynek-34C",
+    bookingUrl: "https://www.booking.com/hotel/pl/apartamenty-stary-rynek-bydgoszcz.en-gb.html",
+    linkNote: "Booking.com opens the wider Stary Rynek property group.",
     isCurrent: false,
     betterThanCurrent: true,
     kidsPick: true,
@@ -68,7 +71,7 @@ const stays = [
     decisionRank: 2,
     cardRank: 2,
     image: "https://booking-bydgoszcz.pl/images/objects/pictures/large/3/3/394.jpg",
-    highlights: ["50 m2", "Market-square address", "Strong location premium"],
+    highlights: ["50 m2", "Market-square address", "Property-group match"],
     whyCard: "This is the best location-led switch that still looks sensible on price."
   },
   {
@@ -83,8 +86,9 @@ const stays = [
     valueScore: 5,
     notes: "The sharpest value play if Amy accepts a slightly less postcard-perfect micro-location.",
     verdict: "Upgrade",
-    offerUrl: "https://booking-bydgoszcz.pl/offer/16/Apartament-Jagiellonska-70",
-    offerText: "Open offer",
+    directUrl: "https://booking-bydgoszcz.pl/offer/16/Apartament-Jagiellonska-70",
+    bookingUrl: "https://www.booking.com/hotel/pl/bydgoszcz-apartament-jagielloaska-70.en-gb.html",
+    linkNote: "",
     isCurrent: false,
     betterThanCurrent: true,
     kidsPick: true,
@@ -92,7 +96,7 @@ const stays = [
     decisionRank: 3,
     cardRank: 3,
     image: "https://booking-bydgoszcz.pl/images/objects/pictures/large/6/1/165.jpg",
-    highlights: ["55 m2", "Best value score", "Lower screening cost"],
+    highlights: ["55 m2", "Best value score", "Booking.com match"],
     whyCard: "It gives the family much more room for materially less money, with only a small location trade."
   },
   {
@@ -107,8 +111,9 @@ const stays = [
     valueScore: 5,
     notes: "Very practical fallback: good size, strong value, and still walkable for family sightseeing.",
     verdict: "Upgrade",
-    offerUrl: "https://booking-bydgoszcz.pl/offer/18/Apartament-Dworcowa-13",
-    offerText: "Open offer",
+    directUrl: "https://booking-bydgoszcz.pl/offer/18/Apartament-Dworcowa-13",
+    bookingUrl: "https://www.booking.com/hotel/pl/apartament-dworcowa-13.html",
+    linkNote: "",
     isCurrent: false,
     betterThanCurrent: true,
     kidsPick: true,
@@ -116,7 +121,7 @@ const stays = [
     decisionRank: 4,
     cardRank: 4,
     image: "https://booking-bydgoszcz.pl/images/objects/pictures/large/8/1/238.jpg",
-    highlights: ["52 m2", "Good fallback", "Strong practical fit"],
+    highlights: ["52 m2", "Good fallback", "Booking.com match"],
     whyCard: "Not the prettiest address, but it solves the family layout issue cleanly."
   },
   {
@@ -131,8 +136,9 @@ const stays = [
     valueScore: 4,
     notes: "Best postcard experience in the shortlist, with enough room and a still-defensible price screen.",
     verdict: "Upgrade",
-    offerUrl: "https://booking-bydgoszcz.pl/offer/26/Apartament-Stary-Port-115",
-    offerText: "Open offer",
+    directUrl: "https://booking-bydgoszcz.pl/offer/26/Apartament-Stary-Port-115",
+    bookingUrl: "https://www.booking.com/hotel/pl/apartament-stary-port-1.html",
+    linkNote: "Booking.com opens the Stary Port property listing rather than the 1/15 unit label.",
     isCurrent: false,
     betterThanCurrent: true,
     kidsPick: true,
@@ -140,7 +146,7 @@ const stays = [
     decisionRank: 5,
     cardRank: 5,
     image: "https://booking-bydgoszcz.pl/images/objects/pictures/large/6/2/321.jpg",
-    highlights: ["52 m2", "Riverfront", "Best experience pick"],
+    highlights: ["52 m2", "Riverfront", "Property-group match"],
     whyCard: "This is the location premium that still looks credible against the current booking."
   },
   {
@@ -155,8 +161,9 @@ const stays = [
     valueScore: 4,
     notes: "Great address and a fair screen price, but the space jump is smaller than the leading upgrades.",
     verdict: "Consider",
-    offerUrl: "https://booking-bydgoszcz.pl/offer/29/Apartament-Batorego-24C",
-    offerText: "Open offer",
+    directUrl: "https://booking-bydgoszcz.pl/offer/29/Apartament-Batorego-24C",
+    bookingUrl: "https://www.booking.com/hotel/pl/apartamenty-batorego-2.html",
+    linkNote: "Booking.com opens the Batorego property group.",
     isCurrent: false,
     betterThanCurrent: false,
     kidsPick: false,
@@ -164,7 +171,7 @@ const stays = [
     decisionRank: 6,
     cardRank: 6,
     image: "https://booking-bydgoszcz.pl/images/objects/pictures/large/9/2/339.jpg",
-    highlights: ["40 m2", "Historic core", "Location-led choice"],
+    highlights: ["40 m2", "Historic core", "Property-group match"],
     whyCard: "Worth opening if Amy prioritises address over maximum breathing room."
   },
   {
@@ -179,8 +186,9 @@ const stays = [
     valueScore: 4,
     notes: "Solid middle ground close to Garbary if Amy wants a pragmatic second-choice district.",
     verdict: "Consider",
-    offerUrl: "https://booking-bydgoszcz.pl/offer/23/Apartamenty-Chwytowo-14",
-    offerText: "Open offer",
+    directUrl: "https://booking-bydgoszcz.pl/offer/23/Apartamenty-Chwytowo-14",
+    bookingUrl: "https://www.booking.com/hotel/pl/apartamenty-chwytowo-14.html",
+    linkNote: "",
     isCurrent: false,
     betterThanCurrent: false,
     kidsPick: true,
@@ -188,7 +196,7 @@ const stays = [
     decisionRank: 7,
     cardRank: 7,
     image: "https://booking-bydgoszcz.pl/images/objects/pictures/large/3/2/294.jpg",
-    highlights: ["40 m2", "Good compromise", "Near Garbary"],
+    highlights: ["40 m2", "Good compromise", "Booking.com match"],
     whyCard: "A smart fallback when the top old-town choices disappear or reprice."
   },
   {
@@ -203,8 +211,9 @@ const stays = [
     valueScore: 3,
     notes: "Big and family-capable, but the location is less aligned with Amy's preferred walking zones.",
     verdict: "Consider",
-    offerUrl: "https://booking-bydgoszcz.pl/offer/45/Teofila-Magdzinskiego-5AB",
-    offerText: "Open offer",
+    directUrl: "https://booking-bydgoszcz.pl/offer/45/Teofila-Magdzinskiego-5AB",
+    bookingUrl: "https://www.booking.com/hotel/pl/apartamenty-teofila-magdzinskiego-5.html",
+    linkNote: "Booking.com opens the wider Teofila Magdzinskiego 5 listing.",
     isCurrent: false,
     betterThanCurrent: false,
     kidsPick: true,
@@ -212,7 +221,7 @@ const stays = [
     decisionRank: 8,
     cardRank: 8,
     image: "https://booking-bydgoszcz.pl/images/objects/pictures/large/5/4/795.jpg",
-    highlights: ["60 m2", "Large layout", "Less charming location"],
+    highlights: ["60 m2", "Large layout", "Property-group match"],
     whyCard: "Makes sense only if family space matters more than being in the prettiest part of town."
   },
   {
@@ -227,8 +236,9 @@ const stays = [
     valueScore: 2,
     notes: "Huge and central, but Amy starts paying for excess space rather than a balanced family upgrade.",
     verdict: "Consider",
-    offerUrl: "https://booking-bydgoszcz.pl/offer/24/Apartament-Grodzka-44",
-    offerText: "Open offer",
+    directUrl: "https://booking-bydgoszcz.pl/offer/24/Apartament-Grodzka-44",
+    bookingUrl: "https://www.booking.com/hotel/pl/apartament-grodzka-4.html",
+    linkNote: "Booking.com opens the Grodzka 4 property listing rather than the exact 4/4 unit.",
     isCurrent: false,
     betterThanCurrent: false,
     kidsPick: true,
@@ -236,7 +246,7 @@ const stays = [
     decisionRank: 9,
     cardRank: 9,
     image: "https://booking-bydgoszcz.pl/images/objects/pictures/large/4/2/303.jpg",
-    highlights: ["90 m2", "Old-town address", "Overkill for 4"],
+    highlights: ["90 m2", "Old-town address", "Property-group match"],
     whyCard: "Impressive on paper, but not the sharpest business decision for this family trip."
   },
   {
@@ -251,8 +261,9 @@ const stays = [
     valueScore: 3,
     notes: "The clear budget fallback if price starts to dominate the decision and central walkability matters less.",
     verdict: "Consider",
-    offerUrl: "https://booking-bydgoszcz.pl/offer/14/Apartament-Bohaterow-Kragujewca-6-typu-Suite",
-    offerText: "Open offer",
+    directUrl: "https://booking-bydgoszcz.pl/offer/14/Apartament-Bohaterow-Kragujewca-6-typu-Suite",
+    bookingUrl: "https://www.booking.com/hotel/pl/apartament-bohaterow-kragujewca-6.html",
+    linkNote: "Booking.com opens the Bohaterow Kragujewca 6 property listing.",
     isCurrent: false,
     betterThanCurrent: false,
     kidsPick: false,
@@ -260,13 +271,12 @@ const stays = [
     decisionRank: 10,
     cardRank: 10,
     image: "https://booking-bydgoszcz.pl/images/objects/pictures/large/4/1/99.jpg",
-    highlights: ["40 m2", "Budget fallback", "Szwederowo base"],
+    highlights: ["40 m2", "Budget fallback", "Property-group match"],
     whyCard: "Only worth a live check if Amy wants a cheaper reset rather than a better central stay."
   }
 ];
 
 const currentStay = stays.find((stay) => stay.isCurrent);
-const plnFormatter = new Intl.NumberFormat("pl-PL");
 const comparisonBody = document.querySelector("#comparisonBody");
 const rankingList = document.querySelector("#rankingList");
 const cardsGrid = document.querySelector("#cardsGrid");
@@ -277,6 +287,8 @@ const sortBy = document.querySelector("#sortBy");
 const betterOnly = document.querySelector("#betterOnly");
 const kidsOnly = document.querySelector("#kidsOnly");
 const locationOnly = document.querySelector("#locationOnly");
+
+const plnFormatter = new Intl.NumberFormat("pl-PL");
 
 function formatPln(value) {
   return `${plnFormatter.format(value)} PLN`;
@@ -335,12 +347,31 @@ function getVisibleAlternatives(state) {
   return visible.sort(sorters[state.sort]);
 }
 
-function renderOfferLink(stay, className = "offer-link") {
-  if (!stay.offerUrl) {
-    return `<span class="${className} ${className}--muted">${stay.offerText}</span>`;
+function renderOfferLinks(stay, tableMode = false) {
+  const links = [];
+
+  if (stay.bookingUrl) {
+    links.push(
+      `<a class="offer-link offer-link--booking${tableMode ? " offer-link--table" : ""}" href="${stay.bookingUrl}" target="_blank" rel="noreferrer">Booking.com</a>`
+    );
   }
 
-  return `<a class="${className}" href="${stay.offerUrl}" target="_blank" rel="noreferrer">${stay.offerText}</a>`;
+  if (stay.directUrl) {
+    links.push(
+      `<a class="offer-link offer-link--direct${tableMode ? " offer-link--table" : ""}" href="${stay.directUrl}" target="_blank" rel="noreferrer">Direct page</a>`
+    );
+  }
+
+  if (!links.length) {
+    return `<span class="offer-link offer-link--muted${tableMode ? " offer-link--table" : ""}">No live link</span>`;
+  }
+
+  return `
+    <div class="offer-links${tableMode ? " offer-links--table" : ""}">
+      ${links.join("")}
+      ${stay.linkNote ? `<small class="offer-note">${stay.linkNote}</small>` : ""}
+    </div>
+  `;
 }
 
 function updateDecision(primary) {
@@ -362,21 +393,24 @@ function updateDecision(primary) {
   if (!primary) {
     heroDecisionPill.textContent = "Keep";
     decisionBadge.textContent = "Keep";
-    heroDecisionHeading.textContent = "Keep the current booking unless a stronger live option appears.";
+    heroDecisionHeading.textContent = "Keep the current booking unless a stronger live match appears.";
     heroDecisionText.textContent =
-      "The active filters remove the strongest click-through alternatives, so the booked stay remains the safest move.";
+      "The active filters remove the strongest alternatives, so the booked stay remains the safest move.";
     heroTake.textContent = "Keep the current booking";
-    heroSupport.textContent = "No visible live offer is clearly stronger once the current filters are applied.";
+    heroSupport.textContent =
+      "No visible live offer is clearly stronger once the current filters are applied.";
     metricBestOption.textContent = "Current booking";
     metricSpaceGain.textContent = "0 m2";
     metricBudgetDelta.textContent = "0 PLN";
     decisionTitle.textContent = "Keep unless a better-value 50+ m2 option appears live.";
     decisionReason.textContent =
       "With no stronger shortlist items visible, keeping the booked stay avoids churn and protects the preferred zone.";
-    whySwitch.textContent = "A switch only makes sense when Amy gains meaningful family space in a better walking location.";
-    whyKeep.textContent = "The current booking is already confirmed and still keeps the trip simple.";
+    whySwitch.textContent =
+      "A switch only makes sense when Amy gains meaningful family space in a better walking location.";
+    whyKeep.textContent =
+      "The current booking is already confirmed and now has a Booking.com benchmark link as well.";
     extraNight.textContent =
-      "Use the current booking as the cost anchor until a larger central option appears on a live offer page.";
+      "Use the current booking as the cost anchor until a larger central option appears on a live page.";
     return;
   }
 
@@ -387,16 +421,16 @@ function updateDecision(primary) {
   heroDecisionPill.textContent = primary.betterThanCurrent ? "Switch" : "Keep";
   decisionBadge.textContent = primary.betterThanCurrent ? "Switch" : "Keep";
   heroDecisionHeading.textContent = primary.betterThanCurrent
-    ? "The best switch is now real, clickable, and easier to trust."
+    ? "The best switch now has stronger booking proof."
     : "The visible live offers are useful, but not strong enough to beat the current booking.";
   heroDecisionText.textContent = primary.betterThanCurrent
-    ? `${primary.name} adds ${spaceGain} m2 and still screens ${formatSignedPln(budgetDelta)} against the current total before Amy checks the live July rate.`
+    ? `${primary.name} adds ${spaceGain} m2 and still screens ${formatSignedPln(budgetDelta)} against the current total. Amy can verify it through Booking.com as well as the direct page.`
     : `${primary.name} is worth opening, but it does not improve the family trade-off enough to justify the change.`;
   heroTake.textContent = primary.betterThanCurrent
-    ? `Switch if ${primary.name} still prices well live`
+    ? `Switch if ${primary.name} still clears Booking.com or the direct page live`
     : "Keep unless a sharper-value central apartment appears";
   heroSupport.textContent = primary.betterThanCurrent
-    ? "The upside is not just space. Amy can now open the real offer immediately."
+    ? "The upside is not just space. The booking handoff is cleaner now."
     : "The current booking still wins on certainty and risk control.";
   metricBestOption.textContent = primary.name;
   metricSpaceGain.textContent = `${spaceGain > 0 ? "+" : ""}${spaceGain} m2`;
@@ -405,15 +439,15 @@ function updateDecision(primary) {
     ? `Switch if ${primary.name} or a very similar live old-town offer is still bookable.`
     : "Keep the current booking unless a larger central unit appears live under budget.";
   decisionReason.textContent = primary.betterThanCurrent
-    ? `${primary.name} is the clearest switch because Amy gets ${spaceGain} extra m2, a stronger family layout, and a real listing page to verify before cancelling the current stay.`
+    ? `${primary.name} is the clearest switch because Amy gets ${spaceGain} extra m2, a more practical family layout, and a faster live handoff into Booking.com or the direct supplier page.`
     : "The visible alternatives either weaken the location logic, offer too little extra space, or rely on a weaker value case than the current booking.";
   whySwitch.textContent = primary.betterThanCurrent
-    ? "Amy gets a real family-space upgrade and can check the offer page immediately instead of trusting a proxy comp."
-    : "Switching only pays off when it improves both comfort and the practical booking path.";
+    ? "Amy gets a real family-space upgrade and two clearer routes to check the listing before cancelling."
+    : "Switching only pays off when it improves comfort, location logic, and booking confidence.";
   whyKeep.textContent =
-    "If the live July rate jumps materially above the screening number, the certainty of the booked stay becomes the better decision.";
+    "If the live July rate jumps materially above the screening number, the certainty of the booked stay becomes the better move.";
   extraNight.textContent =
-    `Use about ${formatPln(nightlyEstimate)} as the first-pass extra-night screen, then confirm the exact July 2026 total on the offer page.`;
+    `Use about ${formatPln(nightlyEstimate)} as the first-pass extra-night screen, then confirm the exact July 2026 total on the live listing.`;
 }
 
 function renderRanking(visibleAlternatives) {
@@ -439,7 +473,7 @@ function renderRanking(visibleAlternatives) {
             <span class="status-chip ${verdictClass(stay.verdict)}">${stay.verdict}</span>
           </div>
           <div class="ranking-actions">
-            ${renderOfferLink(stay, "offer-link")}
+            ${renderOfferLinks(stay)}
           </div>
         </article>
       `;
@@ -462,7 +496,7 @@ function renderComparison(rows) {
         <tr class="${rowClasses}">
           <td class="property-cell">
             <strong>${stay.name}</strong>
-            <span>${stay.isCurrent ? "Current benchmark" : "Real public offer"}</span>
+            <span>${stay.isCurrent ? "Current benchmark" : "Live market option"}</span>
           </td>
           <td>${stay.area}</td>
           <td class="table-price">
@@ -477,7 +511,7 @@ function renderComparison(rows) {
           <td><span class="score-value">${stay.locationScore}</span>/5</td>
           <td><span class="score-value">${stay.valueScore}</span>/5</td>
           <td class="table-note">${stay.notes}</td>
-          <td class="table-offer">${renderOfferLink(stay, "offer-link offer-link--table")}</td>
+          <td class="table-offer">${renderOfferLinks(stay, true)}</td>
           <td><span class="table-badge ${verdictClass(stay.verdict)}">${stay.verdict}</span></td>
         </tr>
       `;
@@ -508,7 +542,7 @@ function renderCards(visibleAlternatives) {
               <p>${stay.whyCard}</p>
             </div>
             <div class="card-actions">
-              ${renderOfferLink(stay, "offer-link")}
+              ${renderOfferLinks(stay)}
             </div>
           </div>
         </article>
@@ -544,7 +578,7 @@ function renderInsights() {
     {
       label: "Best upgrade path",
       title: betterOptions[0].name,
-      text: `${betterOptions[0].notes} It is the cleanest move because Amy gets a real click-through offer page and a meaningful family-space upgrade.`
+      text: `${betterOptions[0].notes} It is the cleanest move because Amy gets a meaningful family-space upgrade and stronger booking proof through two channels.`
     },
     {
       label: "Best budget downgrade",
@@ -559,7 +593,7 @@ function renderInsights() {
     {
       label: "Best pure value",
       title: cheapestComfortable.name,
-      text: `${cheapestComfortable.notes} It is the cheapest family-fit live page to open first if Amy wants the best value screen.`
+      text: `${cheapestComfortable.notes} It is the cheapest family-fit live page to open first if Amy wants the strongest value screen.`
     }
   ];
 
