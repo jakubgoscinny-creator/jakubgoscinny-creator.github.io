@@ -6,223 +6,115 @@
   <title>Bydgoszcz Stay Decision | Amy's accommodation options - July 2026</title>
   <meta
     name="description"
-    content="A city-game-branded decision dashboard to help Amy choose the best family stay in Bydgoszcz for July 2026."
+    content="A simple, practical page to help Amy choose the best family stay in Bydgoszcz for July 2026."
   >
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   >
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <div class="app-shell stay-shell">
-    <header class="app-chrome">
-      <a class="chrome-brand" href="#top">
-        <span class="chrome-crest" aria-hidden="true">
-          <span></span>
-          <span></span>
-          <span></span>
-        </span>
-        <span class="chrome-brand-copy">
-          <small>Bydgoszcz City Game</small>
-          <strong>Stay Decision Atlas</strong>
+  <div class="page">
+    <header class="site-header">
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>
+          <strong>Bydgoszcz Stay Decision</strong>
+          <small>Amy's accommodation options</small>
         </span>
       </a>
 
-      <div class="chrome-pulse">
-        <span class="chrome-progress">Family stay sprint</span>
-        <strong>One fast keep-or-switch decision</strong>
-      </div>
-
-      <nav class="topnav" aria-label="Page sections">
-        <a href="#decision">Decision</a>
+      <nav class="site-nav" aria-label="Page sections">
+        <a href="#decision">Recommendation</a>
         <a href="#compare">Compare</a>
-        <a href="#cards">Cards</a>
-        <a href="#insights">Insights</a>
+        <a href="#cards">Shortlist</a>
       </nav>
     </header>
 
     <main id="top">
-      <section class="hero-panel stay-hero">
+      <section class="hero">
         <div class="hero-copy">
-          <p class="kicker">Bydgoszcz City Game x Stay Decision</p>
-          <h1>Bydgoszcz Stay Decision</h1>
-          <p class="subtitle">Amy's accommodation options - July 2026</p>
-          <p class="hero-intro">
-            This keeps the city-game feel, but changes the mission. Amy needs a fast, family-first
-            stay decision for 9-12 July 2026: keep the current booking, or switch to a better
-            apartment with cleaner booking handoff.
+          <p class="eyebrow">9-12 July 2026 | 2 adults + 2 children</p>
+          <h1>A cleaner way to choose the Bydgoszcz stay.</h1>
+          <p class="intro">
+            The current booking is safe and central, but it is also the tightest option for a family
+            of four. This page keeps the decision simple: look at space, price, and location, then
+            open the strongest options directly.
           </p>
 
-          <div class="badge-row">
-            <span class="badge badge-blue">9-12 July 2026</span>
-            <span class="badge badge-white">2 adults + 2 children</span>
-            <span class="badge badge-red">Apartment layout required</span>
-          </div>
-
-          <div class="hero-actions">
-            <a class="primary-link" href="#decision">Open recommendation</a>
-            <a class="secondary-link" href="#cards">See top cards</a>
-          </div>
-
-          <div class="brand-band">
-            <article class="brand-pill">
-              <span class="brand-dot is-blue"></span>
-              <div>
-                <strong>Blue river logic</strong>
-                <p>Wyspa Mlynska and old-town walkability still carry the highest emotional value.</p>
-              </div>
-            </article>
-            <article class="brand-pill">
-              <span class="brand-dot is-white"></span>
-              <div>
-                <strong>White space rule</strong>
-                <p>One bedroom plus a real sofa bed matters more than squeezing into the smallest central unit.</p>
-              </div>
-            </article>
-            <article class="brand-pill">
-              <span class="brand-dot is-red"></span>
-              <div>
-                <strong>Red booking handoff</strong>
-                <p>The best options now carry Booking.com links as well as direct property pages where matched.</p>
-              </div>
-            </article>
+          <div class="facts">
+            <div class="fact">
+              <span>Current booking</span>
+              <strong>Dream Team Krolowej Jadwigi</strong>
+              <p>31 m2 | about 1389 PLN</p>
+            </div>
+            <div class="fact">
+              <span>Best areas</span>
+              <strong>Wyspa Mlynska, then Garbary</strong>
+              <p>Szwederowo only as a budget fallback</p>
+            </div>
+            <div class="fact">
+              <span>What matters most</span>
+              <strong>More room without losing the centre</strong>
+              <p>One bedroom plus a useful sofa bed is the sweet spot</p>
+            </div>
           </div>
         </div>
 
-        <aside class="atlas-panel">
-          <div class="atlas-heading">
+        <aside class="decision-card" id="decision">
+          <p class="decision-label">My recommendation</p>
+          <div class="decision-badge" id="decisionBadge">Switch</div>
+          <h2 id="decisionTitle">If Jezuicka 24 is still available around this price, I would switch.</h2>
+          <p class="decision-summary" id="decisionSummary">
+            It gives the family more space, keeps a strong location, and still looks better value than the current booking.
+          </p>
+
+          <dl class="decision-metrics">
             <div>
-              <p class="hero-card-label">Decision atlas</p>
-              <h2 id="heroDecisionHeading">The best switch is now easier to verify.</h2>
+              <dt>Best option now</dt>
+              <dd id="metricBestOption">Apartament Jezuicka 24</dd>
             </div>
-            <p class="atlas-copy" id="heroDecisionText">
-              Amy can now compare the shortlist inside one branded dashboard, then jump out through
-              Booking.com or the direct offer page before making the cancellation call.
-            </p>
-          </div>
+            <div>
+              <dt>Space difference</dt>
+              <dd id="metricSpaceGain">+24 m2</dd>
+            </div>
+            <div>
+              <dt>Price difference</dt>
+              <dd id="metricBudgetDelta">-681 PLN</dd>
+            </div>
+          </dl>
 
-          <div class="decision-pulse-card">
-            <div class="hero-pill" id="heroDecisionPill">Switch</div>
-            <strong id="heroTake">Every serious alternative now carries a clearer booking path</strong>
-            <p id="heroSupport">
-              Use the recommendation first, then open Booking.com or the direct page to validate the move live.
-            </p>
-          </div>
+          <div class="decision-links" id="decisionLinks"></div>
 
-          <div class="atlas-notes stay-metrics">
-            <article class="metric-card">
-              <span>Best alternative</span>
-              <strong id="metricBestOption">Apartament Jezuicka 24</strong>
-            </article>
-            <article class="metric-card">
-              <span>Space gain</span>
-              <strong id="metricSpaceGain">+24 m2</strong>
-            </article>
-            <article class="metric-card">
-              <span>Screen delta</span>
-              <strong id="metricBudgetDelta">-681 PLN</strong>
-            </article>
+          <div class="decision-notes">
+            <div>
+              <span>Why switch</span>
+              <p id="whySwitch">The best alternatives feel much easier for a family of four.</p>
+            </div>
+            <div>
+              <span>Why keep</span>
+              <p id="whyKeep">If the better options jump in price or disappear, the current booking is still the low-stress choice.</p>
+            </div>
           </div>
         </aside>
       </section>
 
-      <section class="memory-banner method-banner">
-        <div>
-          <p class="kicker">Decision Method</p>
-          <h2>Two booking channels, one honest screen</h2>
+      <section class="compare-section" id="compare">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Comparison</p>
+            <h2>Compare the options properly.</h2>
+          </div>
           <p class="section-copy">
-            The current booking uses the confirmed 3-night total. Alternatives use a screened
-            3-night total from listed rates. Each row links to Booking.com where matched and keeps
-            the direct source page as a second handoff. A few Booking.com buttons open the parent
-            property listing rather than the exact internal unit.
-          </p>
-        </div>
-        <div class="banner-metrics">
-          <article class="menu-metric">
-            <small>Current benchmark</small>
-            <strong>Dream Team</strong>
-            <span>31 m2 | 1389 PLN confirmed</span>
-          </article>
-          <article class="menu-metric">
-            <small>Best zone</small>
-            <strong>Wyspa Mlynska</strong>
-            <span>Then Garbary, then Szwederowo</span>
-          </article>
-          <article class="menu-metric">
-            <small>Booking handoff</small>
-            <strong>Booking.com + Direct</strong>
-            <span>Use both when Amy wants more confidence</span>
-          </article>
-        </div>
-      </section>
-
-      <section class="decision-section" id="decision">
-        <div class="section-heading">
-          <div>
-            <p class="kicker">Recommended Decision</p>
-            <h2>Switch only when the live listing still clears the bar.</h2>
-          </div>
-          <p class="section-copy section-copy-tight">
-            The decision stays practical: more room, better family fit, strong walking location,
-            and low booking friction.
+            Booking.com links now open in the same tab. The direct page is there as a backup.
           </p>
         </div>
 
-        <div class="decision-layout">
-          <article class="decision-main">
-            <div class="decision-badge" id="decisionBadge">Switch</div>
-            <h3 id="decisionTitle">Switch if Apartament Jezuicka 24 or a similar live old-town page is still bookable.</h3>
-            <p id="decisionReason">
-              Dream Team still wins on certainty, but the family gives up too much breathing room.
-              The strongest live alternatives now give Amy both a clearer shortlist and a better
-              booking path.
-            </p>
-            <div class="decision-points">
-              <div>
-                <span>Why switch</span>
-                <p id="whySwitch">
-                  The leading options add real family space and now link into Booking.com as well as the direct listing.
-                </p>
-              </div>
-              <div>
-                <span>Why keep</span>
-                <p id="whyKeep">
-                  If live July pricing jumps or the cleaner layouts disappear, the current booking stays the low-risk move.
-                </p>
-              </div>
-              <div>
-                <span>Extra-night impact</span>
-                <p id="extraNight">
-                  Use the listed nightly floor as the screen, then confirm the real July total on the live page before changing course.
-                </p>
-              </div>
-            </div>
-          </article>
-
-          <aside class="decision-ranking">
-            <div class="ranking-head">
-              <h3>Top alternatives</h3>
-              <p>Ranked by family fit, location strength, screened value, and booking handoff quality.</p>
-            </div>
-            <div class="ranking-list" id="rankingList"></div>
-          </aside>
-        </div>
-      </section>
-
-      <section class="comparison-section" id="compare">
-        <div class="section-heading comparison-head">
-          <div>
-            <p class="kicker">Comparison Table</p>
-            <h2>Amy can shortlist, validate, and click out in under two minutes.</h2>
-          </div>
-          <p class="comparison-count" id="comparisonCount">Showing 11 options</p>
-        </div>
-
-        <div class="controls-panel">
-          <label class="control-field">
+        <div class="controls">
+          <label class="field">
             <span>Sort by</span>
             <select id="sortBy">
               <option value="decision">Recommendation</option>
@@ -232,115 +124,78 @@
             </select>
           </label>
 
-          <label class="toggle-chip">
+          <label class="toggle">
             <input type="checkbox" id="betterOnly">
-            <span>Only better than current</span>
+            <span>Only stronger than the current booking</span>
           </label>
 
-          <label class="toggle-chip">
+          <label class="toggle">
             <input type="checkbox" id="kidsOnly">
-            <span>Best for kids</span>
+            <span>Best for children</span>
           </label>
 
-          <label class="toggle-chip">
+          <label class="toggle">
             <input type="checkbox" id="locationOnly">
-            <span>Best location</span>
+            <span>Best location only</span>
           </label>
+
+          <p class="count" id="comparisonCount">Showing 11 options</p>
         </div>
 
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Property Name</th>
-                <th>Area</th>
-                <th>Price (PLN)</th>
-                <th>Size (m2)</th>
-                <th>Sleeps Comfortably?</th>
-                <th>Location Score</th>
-                <th>Value Score</th>
-                <th>Notes</th>
-                <th>Links</th>
-                <th>Verdict</th>
-              </tr>
-            </thead>
-            <tbody id="comparisonBody"></tbody>
-          </table>
+        <div class="table-card">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Property</th>
+                  <th>Area</th>
+                  <th>Price</th>
+                  <th>Size</th>
+                  <th>Comfort</th>
+                  <th>Location</th>
+                  <th>Value</th>
+                  <th>Notes</th>
+                  <th>Links</th>
+                  <th>Verdict</th>
+                </tr>
+              </thead>
+              <tbody id="comparisonBody"></tbody>
+            </table>
+          </div>
         </div>
       </section>
 
       <section class="cards-section" id="cards">
-        <div class="section-heading">
+        <div class="section-head">
           <div>
-            <p class="kicker">Visual Shortlist</p>
-            <h2>The most actionable stay pages at a glance.</h2>
+            <p class="eyebrow">Shortlist</p>
+            <h2>Open these first.</h2>
           </div>
-          <p class="section-copy section-copy-tight">
-            These are the pages Amy should open first if she wants the highest upside with the least friction.
+          <p class="section-copy">
+            These are the options most worth checking live before changing anything.
           </p>
         </div>
+
         <div class="cards-grid" id="cardsGrid"></div>
       </section>
 
-      <section class="insights-section" id="insights">
-        <div class="section-heading">
+      <section class="notes-section">
+        <div class="section-head">
           <div>
-            <p class="kicker">Strategic Insights</p>
-            <h2>What the shortlist really says.</h2>
+            <p class="eyebrow">Quick notes</p>
+            <h2>A few honest takeaways.</h2>
           </div>
-          <p class="section-copy section-copy-tight">
-            The trade-offs are not subtle anymore. The page is designed to make the decision feel obvious.
-          </p>
         </div>
-        <div class="insights-grid" id="insightsGrid"></div>
-      </section>
 
-      <section class="source-section">
-        <div class="section-heading">
-          <div>
-            <p class="kicker">Source Notes</p>
-            <h2>How to trust the links.</h2>
-          </div>
-          <p class="section-copy section-copy-tight">
-            This dashboard now behaves like a stay atlas: compare inside, verify outside.
-          </p>
-        </div>
-        <div class="source-grid">
-          <article>
-            <h3>Current benchmark</h3>
-            <p>
-              Dream Team Krolowej Jadwigi remains the anchor because Amy already has a confirmed
-              booking and a real Booking.com listing to re-check if needed.
-            </p>
-          </article>
-          <article>
-            <h3>Booking.com handoff</h3>
-            <p>
-              Booking.com is now part of the main action path. Where the exact unit is not listed,
-              the button opens the closest property-level match instead of pretending a perfect 1:1 link exists.
-            </p>
-          </article>
-          <article>
-            <h3>Direct source backup</h3>
-            <p>
-              The direct property page remains visible as a second route, which is useful when Amy
-              wants the supplier listing as well as the broader marketplace view.
-            </p>
-          </article>
-        </div>
+        <div class="notes-grid" id="insightsGrid"></div>
       </section>
     </main>
 
-    <footer class="project-note footer">
-      <div>
-        <strong>Bydgoszcz Stay Decision Atlas</strong>
-        <span>Keep the current booking, or switch with more confidence using Booking.com and direct-page handoff.</span>
-      </div>
-      <div class="footer-meta">
-        <a href="https://jakubgoscinny-creator.github.io/bydgoszcz-stay-decision/" target="_blank" rel="noreferrer">Live page</a>
-        <a href="https://www.booking.com/" target="_blank" rel="noreferrer">Booking.com</a>
-        <a href="https://booking-bydgoszcz.pl/offers/searching/true" target="_blank" rel="noreferrer">Direct source</a>
-      </div>
+    <footer class="site-footer">
+      <p>
+        Prices for alternatives are still screening numbers, so Amy should check the live total before switching.
+      </p>
+      <a href="https://jakubgoscinny-creator.github.io/bydgoszcz-stay-decision/">Open the live page</a>
     </footer>
   </div>
 
