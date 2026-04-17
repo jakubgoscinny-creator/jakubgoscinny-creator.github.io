@@ -1,630 +1,374 @@
-const stays = [
-  {
-    id: "dream-team",
-    name: "Dream Team Krolowej Jadwigi",
-    area: "Krolowej Jadwigi / edge of Wyspa Mlynska",
-    pricePln: 1389,
-    priceType: "Confirmed 3-night total",
-    size: 31,
-    sleepsComfortably: false,
-    locationScore: 5,
-    valueScore: 3,
-    notes: "Already booked and central, but still the tightest layout for 2 adults and 2 children.",
-    verdict: "Keep",
-    directUrl: "",
-    bookingUrl: "https://www.booking.com/hotel/pl/dream-team-krolowej-jadwigi.html",
-    linkNote: "",
-    isCurrent: true,
-    betterThanCurrent: false,
-    kidsPick: false,
-    bestLocation: true,
-    decisionRank: 99,
-    cardRank: 99,
-    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80",
-    highlights: ["Confirmed benchmark", "Prime walkability", "Smallest footprint"],
-    whyCard: "This is the low-risk baseline, not the best family layout."
-  },
-  {
-    id: "jezuicka-24",
-    name: "Apartament Jezuicka 24",
-    area: "Old Town / Wyspa Mlynska",
-    pricePln: 708,
-    priceType: "Screened 3-night total from listed rate",
-    size: 55,
-    sleepsComfortably: true,
-    locationScore: 5,
-    valueScore: 5,
-    notes: "Best all-round move: real family space, old-town feel, and the strongest value screen.",
-    verdict: "Upgrade",
-    directUrl: "https://booking-bydgoszcz.pl/offer/20/Apartament-Jezuicka-24",
-    bookingUrl: "https://www.booking.com/hotel/pl/apartament-jezuicka-24.html",
-    linkNote: "",
-    isCurrent: false,
-    betterThanCurrent: true,
-    kidsPick: true,
-    bestLocation: true,
-    decisionRank: 1,
-    cardRank: 1,
-    image: "https://booking-bydgoszcz.pl/images/objects/pictures/large/0/2/256.jpg",
-    highlights: ["55 m2", "Old-town walk", "Booking.com match"],
-    whyCard: "It fixes the space problem without giving up the atmosphere Amy actually wants."
-  },
-  {
-    id: "stary-rynek-34c",
-    name: "Apartament Stary Rynek 3/4C",
-    area: "Old Town core",
-    pricePln: 897,
-    priceType: "Screened 3-night total from listed rate",
-    size: 50,
-    sleepsComfortably: true,
-    locationScore: 5,
-    valueScore: 4,
-    notes: "A stronger old-town upgrade if Amy wants the most central feel without overshooting the current spend.",
-    verdict: "Upgrade",
-    directUrl: "https://booking-bydgoszcz.pl/offer/33/Apartament-Stary-Rynek-34C",
-    bookingUrl: "https://www.booking.com/hotel/pl/apartamenty-stary-rynek-bydgoszcz.en-gb.html",
-    linkNote: "Booking.com opens the wider Stary Rynek property group.",
-    isCurrent: false,
-    betterThanCurrent: true,
-    kidsPick: true,
-    bestLocation: true,
-    decisionRank: 2,
-    cardRank: 2,
-    image: "https://booking-bydgoszcz.pl/images/objects/pictures/large/3/3/394.jpg",
-    highlights: ["50 m2", "Market-square address", "Property-group match"],
-    whyCard: "This is the best location-led switch that still looks sensible on price."
-  },
-  {
-    id: "jagiellonska-70",
-    name: "Apartament Jagiellonska 70",
-    area: "Riverside east / city centre",
-    pricePln: 612,
-    priceType: "Screened 3-night total from listed rate",
-    size: 55,
-    sleepsComfortably: true,
-    locationScore: 4,
-    valueScore: 5,
-    notes: "The sharpest value play if Amy accepts a slightly less postcard-perfect micro-location.",
-    verdict: "Upgrade",
-    directUrl: "https://booking-bydgoszcz.pl/offer/16/Apartament-Jagiellonska-70",
-    bookingUrl: "https://www.booking.com/hotel/pl/bydgoszcz-apartament-jagielloaska-70.en-gb.html",
-    linkNote: "",
-    isCurrent: false,
-    betterThanCurrent: true,
-    kidsPick: true,
-    bestLocation: false,
-    decisionRank: 3,
-    cardRank: 3,
-    image: "https://booking-bydgoszcz.pl/images/objects/pictures/large/6/1/165.jpg",
-    highlights: ["55 m2", "Best value score", "Booking.com match"],
-    whyCard: "It gives the family much more room for materially less money, with only a small location trade."
-  },
-  {
-    id: "dworcowa-13",
-    name: "Apartament Dworcowa 13",
-    area: "Centre west / Garbary side",
-    pricePln: 672,
-    priceType: "Screened 3-night total from listed rate",
-    size: 52,
-    sleepsComfortably: true,
-    locationScore: 4,
-    valueScore: 5,
-    notes: "Very practical fallback: good size, strong value, and still walkable for family sightseeing.",
-    verdict: "Upgrade",
-    directUrl: "https://booking-bydgoszcz.pl/offer/18/Apartament-Dworcowa-13",
-    bookingUrl: "https://www.booking.com/hotel/pl/apartament-dworcowa-13.html",
-    linkNote: "",
-    isCurrent: false,
-    betterThanCurrent: true,
-    kidsPick: true,
-    bestLocation: false,
-    decisionRank: 4,
-    cardRank: 4,
-    image: "https://booking-bydgoszcz.pl/images/objects/pictures/large/8/1/238.jpg",
-    highlights: ["52 m2", "Good fallback", "Booking.com match"],
-    whyCard: "Not the prettiest address, but it solves the family layout issue cleanly."
-  },
-  {
-    id: "stary-port-115",
-    name: "Apartament Stary Port 1/15",
-    area: "Prime riverfront",
-    pricePln: 1137,
-    priceType: "Screened 3-night total from listed rate",
-    size: 52,
-    sleepsComfortably: true,
-    locationScore: 5,
-    valueScore: 4,
-    notes: "Best postcard experience in the shortlist, with enough room and a still-defensible price screen.",
-    verdict: "Upgrade",
-    directUrl: "https://booking-bydgoszcz.pl/offer/26/Apartament-Stary-Port-115",
-    bookingUrl: "https://www.booking.com/hotel/pl/apartament-stary-port-1.html",
-    linkNote: "Booking.com opens the Stary Port property listing rather than the 1/15 unit label.",
-    isCurrent: false,
-    betterThanCurrent: true,
-    kidsPick: true,
-    bestLocation: true,
-    decisionRank: 5,
-    cardRank: 5,
-    image: "https://booking-bydgoszcz.pl/images/objects/pictures/large/6/2/321.jpg",
-    highlights: ["52 m2", "Riverfront", "Property-group match"],
-    whyCard: "This is the location premium that still looks credible against the current booking."
-  },
-  {
-    id: "batorego-24c",
-    name: "Apartament Batorego 2/4C",
-    area: "Old Town core",
-    pricePln: 849,
-    priceType: "Screened 3-night total from listed rate",
-    size: 40,
-    sleepsComfortably: true,
-    locationScore: 5,
-    valueScore: 4,
-    notes: "Great address and a fair screen price, but the space jump is smaller than the leading upgrades.",
-    verdict: "Consider",
-    directUrl: "https://booking-bydgoszcz.pl/offer/29/Apartament-Batorego-24C",
-    bookingUrl: "https://www.booking.com/hotel/pl/apartamenty-batorego-2.html",
-    linkNote: "Booking.com opens the Batorego property group.",
-    isCurrent: false,
-    betterThanCurrent: false,
-    kidsPick: false,
-    bestLocation: true,
-    decisionRank: 6,
-    cardRank: 6,
-    image: "https://booking-bydgoszcz.pl/images/objects/pictures/large/9/2/339.jpg",
-    highlights: ["40 m2", "Historic core", "Property-group match"],
-    whyCard: "Worth opening if Amy prioritises address over maximum breathing room."
-  },
-  {
-    id: "chwytowo-14",
-    name: "Apartamenty Chwytowo 14",
-    area: "Garbary fringe",
-    pricePln: 747,
-    priceType: "Screened 3-night total from listed rate",
-    size: 40,
-    sleepsComfortably: true,
-    locationScore: 4,
-    valueScore: 4,
-    notes: "Solid middle ground close to Garbary if Amy wants a pragmatic second-choice district.",
-    verdict: "Consider",
-    directUrl: "https://booking-bydgoszcz.pl/offer/23/Apartamenty-Chwytowo-14",
-    bookingUrl: "https://www.booking.com/hotel/pl/apartamenty-chwytowo-14.html",
-    linkNote: "",
-    isCurrent: false,
-    betterThanCurrent: false,
-    kidsPick: true,
-    bestLocation: false,
-    decisionRank: 7,
-    cardRank: 7,
-    image: "https://booking-bydgoszcz.pl/images/objects/pictures/large/3/2/294.jpg",
-    highlights: ["40 m2", "Good compromise", "Booking.com match"],
-    whyCard: "A smart fallback when the top old-town choices disappear or reprice."
-  },
-  {
-    id: "teofila-5ab",
-    name: "Teofila Magdzinskiego 5/A/B",
-    area: "Srodmiescie / opera side",
-    pricePln: 1347,
-    priceType: "Screened 3-night total from listed rate",
-    size: 60,
-    sleepsComfortably: true,
-    locationScore: 3,
-    valueScore: 3,
-    notes: "Big and family-capable, but the location is less aligned with Amy's preferred walking zones.",
-    verdict: "Consider",
-    directUrl: "https://booking-bydgoszcz.pl/offer/45/Teofila-Magdzinskiego-5AB",
-    bookingUrl: "https://www.booking.com/hotel/pl/apartamenty-teofila-magdzinskiego-5.html",
-    linkNote: "Booking.com opens the wider Teofila Magdzinskiego 5 listing.",
-    isCurrent: false,
-    betterThanCurrent: false,
-    kidsPick: true,
-    bestLocation: false,
-    decisionRank: 8,
-    cardRank: 8,
-    image: "https://booking-bydgoszcz.pl/images/objects/pictures/large/5/4/795.jpg",
-    highlights: ["60 m2", "Large layout", "Property-group match"],
-    whyCard: "Makes sense only if family space matters more than being in the prettiest part of town."
-  },
-  {
-    id: "grodzka-44",
-    name: "Apartament Grodzka 4/4",
-    area: "Old Town core",
-    pricePln: 1563,
-    priceType: "Screened 3-night total from listed rate",
-    size: 90,
-    sleepsComfortably: true,
-    locationScore: 5,
-    valueScore: 2,
-    notes: "Huge and central, but Amy starts paying for excess space rather than a balanced family upgrade.",
-    verdict: "Consider",
-    directUrl: "https://booking-bydgoszcz.pl/offer/24/Apartament-Grodzka-44",
-    bookingUrl: "https://www.booking.com/hotel/pl/apartament-grodzka-4.html",
-    linkNote: "Booking.com opens the Grodzka 4 property listing rather than the exact 4/4 unit.",
-    isCurrent: false,
-    betterThanCurrent: false,
-    kidsPick: true,
-    bestLocation: true,
-    decisionRank: 9,
-    cardRank: 9,
-    image: "https://booking-bydgoszcz.pl/images/objects/pictures/large/4/2/303.jpg",
-    highlights: ["90 m2", "Old-town address", "Property-group match"],
-    whyCard: "Impressive on paper, but not the sharpest business decision for this family trip."
-  },
-  {
-    id: "bohaterow-suite",
-    name: "Apartament Bohaterow Kragujewca 6 typu Suite",
-    area: "Szwederowo alternative",
-    pricePln: 756,
-    priceType: "Screened 3-night total from listed rate",
-    size: 40,
-    sleepsComfortably: true,
-    locationScore: 2,
-    valueScore: 3,
-    notes: "The clear budget fallback if price starts to dominate the decision and central walkability matters less.",
-    verdict: "Consider",
-    directUrl: "https://booking-bydgoszcz.pl/offer/14/Apartament-Bohaterow-Kragujewca-6-typu-Suite",
-    bookingUrl: "https://www.booking.com/hotel/pl/apartament-bohaterow-kragujewca-6.html",
-    linkNote: "Booking.com opens the Bohaterow Kragujewca 6 property listing.",
-    isCurrent: false,
-    betterThanCurrent: false,
-    kidsPick: false,
-    bestLocation: false,
-    decisionRank: 10,
-    cardRank: 10,
-    image: "https://booking-bydgoszcz.pl/images/objects/pictures/large/4/1/99.jpg",
-    highlights: ["40 m2", "Budget fallback", "Property-group match"],
-    whyCard: "Only worth a live check if Amy wants a cheaper reset rather than a better central stay."
+const revealElements = document.querySelectorAll(".reveal");
+
+for (const element of revealElements) {
+  const delay = element.dataset.delay;
+  if (delay) {
+    element.style.setProperty("--reveal-delay", `${delay}ms`);
   }
-];
-
-const currentStay = stays.find((stay) => stay.isCurrent);
-const comparisonBody = document.querySelector("#comparisonBody");
-const rankingList = document.querySelector("#rankingList");
-const cardsGrid = document.querySelector("#cardsGrid");
-const insightsGrid = document.querySelector("#insightsGrid");
-const comparisonCount = document.querySelector("#comparisonCount");
-
-const sortBy = document.querySelector("#sortBy");
-const betterOnly = document.querySelector("#betterOnly");
-const kidsOnly = document.querySelector("#kidsOnly");
-const locationOnly = document.querySelector("#locationOnly");
-
-const plnFormatter = new Intl.NumberFormat("pl-PL");
-
-function formatPln(value) {
-  return `${plnFormatter.format(value)} PLN`;
 }
 
-function formatSignedPln(value) {
-  if (value === 0) {
-    return "0 PLN";
+const observer = new IntersectionObserver(
+  (entries, obs) => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) {
+        continue;
+      }
+
+      entry.target.classList.add("is-visible");
+      obs.unobserve(entry.target);
+    }
+  },
+  {
+    threshold: 0.16,
+    rootMargin: "0px 0px -6% 0px",
   }
+);
 
-  const sign = value > 0 ? "+" : "-";
-  return `${sign}${plnFormatter.format(Math.abs(value))} PLN`;
+for (const element of revealElements) {
+  observer.observe(element);
 }
 
-function verdictClass(verdict) {
-  return `is-${verdict.toLowerCase()}`;
+const yearNode = document.querySelector("#year");
+
+if (yearNode) {
+  yearNode.textContent = String(new Date().getFullYear());
 }
 
-function getState() {
-  return {
-    sort: sortBy.value,
-    betterOnly: betterOnly.checked,
-    kidsOnly: kidsOnly.checked,
-    locationOnly: locationOnly.checked
+const wizardForm = document.querySelector("#briefWizard");
+
+if (wizardForm) {
+  const steps = Array.from(wizardForm.querySelectorAll(".wizard-step"));
+  const stepLabels = Array.from(document.querySelectorAll(".wizard-steps li"));
+  const backButton = document.querySelector("#briefBack");
+  const nextButton = document.querySelector("#briefNext");
+  const output = document.querySelector("#briefOutput");
+  const recommendationNode = document.querySelector("#briefRecommendation");
+  const copyButton = document.querySelector("#copyBrief");
+  const issueLink = document.querySelector("#issueLink");
+  let currentStep = 0;
+
+  const escapeHtml = (value) =>
+    value
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#39;");
+
+  const getState = () => {
+    const data = new FormData(wizardForm);
+
+    return {
+      projectName: (data.get("projectName") || "").toString().trim(),
+      projectType: (data.get("projectType") || "").toString(),
+      primaryUsers: (data.get("primaryUsers") || "").toString().trim(),
+      deliverables: data.getAll("deliverables").map(String),
+      currentState: (data.get("currentState") || "").toString().trim(),
+      workflowReality: (data.get("workflowReality") || "").toString().trim(),
+      systems: data.getAll("systems").map(String),
+      mustKeep: (data.get("mustKeep") || "").toString().trim(),
+      desiredOutcome: (data.get("desiredOutcome") || "").toString().trim(),
+      timeline: (data.get("timeline") || "").toString(),
+      budget: (data.get("budget") || "").toString(),
+      proposalNeeds: data.getAll("proposalNeeds").map(String),
+      decisionMaker: (data.get("decisionMaker") || "").toString().trim(),
+      confidence: (data.get("confidence") || "").toString(),
+      additionalContext: (data.get("additionalContext") || "").toString().trim(),
+    };
   };
-}
 
-function getVisibleAlternatives(state) {
-  const visible = stays.filter((stay) => {
-    if (stay.isCurrent) {
-      return false;
+  const suggestFirstMove = (state) => {
+    if (
+      state.confidence === "Still exploratory / problem-first" ||
+      state.systems.length >= 4 ||
+      state.projectType === "Business system redesign"
+    ) {
+      return "Suggested first move: start with a discovery sprint and workflow map before locking a full delivery estimate.";
     }
 
-    if (state.betterOnly && !stay.betterThanCurrent) {
-      return false;
+    if (
+      state.deliverables.includes("Portal or dashboard") ||
+      state.deliverables.includes("Workflow automation")
+    ) {
+      return "Suggested first move: scope a usable first-phase portal or automation surface, then sequence the rest into phases.";
     }
 
-    if (state.kidsOnly && !stay.kidsPick) {
-      return false;
+    if (
+      state.deliverables.includes("AI assistant or recommendation layer") ||
+      state.projectType === "AI-assisted tool"
+    ) {
+      return "Suggested first move: prototype the decision flow first, then confirm data sources and rollout constraints.";
     }
 
-    if (state.locationOnly && !stay.bestLocation) {
-      return false;
+    return "Suggested first move: prepare a focused proposal with scope options, timing scenarios, and a budget range.";
+  };
+
+  const getComplexityScore = (state) => {
+    let score = 1;
+
+    score += Math.max(0, state.deliverables.length - 1);
+    score += state.systems.length >= 4 ? 3 : state.systems.length >= 2 ? 2 : state.systems.length >= 1 ? 1 : 0;
+    score += state.proposalNeeds.length >= 4 ? 2 : state.proposalNeeds.length >= 2 ? 1 : 0;
+
+    if (state.projectType === "Business system redesign" || state.projectType === "Automation layer") {
+      score += 2;
     }
 
-    return true;
+    if (state.projectType === "AI-assisted tool" || state.projectType === "Workflow portal") {
+      score += 1;
+    }
+
+    if (state.confidence === "Partly clear, needs shaping") {
+      score += 1;
+    }
+
+    if (state.confidence === "Still exploratory / problem-first") {
+      score += 2;
+    }
+
+    if (state.timeline === "Urgent: within 2-4 weeks") {
+      score += 1;
+    }
+
+    return score;
+  };
+
+  const getEstimate = (state) => {
+    const score = getComplexityScore(state);
+
+    if (score <= 3) {
+      return {
+        timeline: "1-2 weeks for a tightly scoped first phase",
+        budget: state.budget || "Lean scope range",
+      };
+    }
+
+    if (score <= 6) {
+      return {
+        timeline: "3-5 weeks for a first usable version",
+        budget: state.budget || "Mid-range operational build",
+      };
+    }
+
+    return {
+      timeline: "6-10+ weeks with phased delivery",
+      budget: state.budget || "Larger phased implementation",
+    };
+  };
+
+  const getRisks = (state) => {
+    const risks = [];
+
+    if (!state.systems.length) {
+      risks.push("Existing systems and integration points are still UNCONFIRMED.");
+    }
+
+    if (!state.budget) {
+      risks.push("Budget range is still UNCONFIRMED.");
+    }
+
+    if (!state.decisionMaker) {
+      risks.push("Decision owner and approval speed are still UNCONFIRMED.");
+    }
+
+    if (state.confidence !== "Clear enough to estimate") {
+      risks.push("Final scope still needs shaping before a hard estimate should be treated as reliable.");
+    }
+
+    if (state.timeline === "Urgent: within 2-4 weeks") {
+      risks.push("An urgent timeline may require narrowed scope or a phased release plan.");
+    }
+
+    if (state.mustKeep) {
+      risks.push(`Any solution must protect this constraint: ${state.mustKeep}.`);
+    }
+
+    return risks.slice(0, 4);
+  };
+
+  const summarize = (state) => {
+    const title = state.projectName || state.projectType || "Project inquiry";
+    const estimate = getEstimate(state);
+    const systemsLine = state.systems.length ? state.systems.join(", ") : "Systems to confirm";
+    const deliverableLine = state.deliverables.length ? state.deliverables.join(", ") : "Deliverables to define";
+    const proposalLine = state.proposalNeeds.length ? state.proposalNeeds.join(", ") : "Proposal focus still to define";
+    const risks = getRisks(state);
+    const recommendation = suggestFirstMove(state);
+
+    const summarySentence = state.currentState
+      ? `Build a ${state.projectType || "workflow-focused solution"} that reduces ${state.currentState.charAt(0).toLowerCase()}${state.currentState.slice(1)} and gives the team a clearer operational path.`
+      : `Shape a ${state.projectType || "workflow-focused solution"} that turns a rough idea into an operationally clear first phase.`;
+
+    const outcomeSentence = state.desiredOutcome
+      ? state.desiredOutcome
+      : "Clarify the desired outcome so proposal scope, timing, and budget can be discussed against a shared target.";
+
+    const scope = [];
+
+    if (state.deliverables.includes("Portal or dashboard")) {
+      scope.push("Core portal or dashboard surface");
+    }
+
+    if (state.deliverables.includes("Workflow automation")) {
+      scope.push("Workflow automation and operational handoffs");
+    }
+
+    if (state.deliverables.includes("AI assistant or recommendation layer")) {
+      scope.push("AI-assisted drafting, triage, or recommendation layer");
+    }
+
+    if (state.deliverables.includes("Clickable prototype")) {
+      scope.push("Clickable prototype to validate the interaction model");
+    }
+
+    if (state.deliverables.includes("Spec and phased proposal")) {
+      scope.push("Spec and phased proposal structure");
+    }
+
+    if (!scope.length) {
+      scope.push("Core scope still to be confirmed");
+    }
+
+    const plainText = [
+      "Project Brief Seed",
+      "",
+      `Title: ${title}`,
+      `Project type: ${state.projectType || "To confirm"}`,
+      `Primary users: ${state.primaryUsers || "To confirm"}`,
+      "",
+      "Summary",
+      summarySentence,
+      outcomeSentence,
+      "",
+      "Scope",
+      ...scope.map((item) => `- ${item}`),
+      "",
+      "Workflow context",
+      `- Current bottleneck: ${state.currentState || "To confirm"}`,
+      `- Current workflow: ${state.workflowReality || "To confirm"}`,
+      `- Existing systems: ${systemsLine}`,
+      "",
+      "Estimate",
+      `- Timeline: ${estimate.timeline}`,
+      `- Budget shape: ${estimate.budget}`,
+      `- Suggested first move: ${recommendation.replace("Suggested first move: ", "")}`,
+      "",
+      "Proposal should answer",
+      `- ${proposalLine}`,
+      "",
+      "Risks / confirmations",
+      ...risks.map((item) => `- ${item}`),
+      "",
+      "Decision context",
+      `- Decision owner: ${state.decisionMaker || "UNCONFIRMED"}`,
+      `- Scope clarity: ${state.confidence || "UNCONFIRMED"}`,
+      `- Must keep: ${state.mustKeep || "UNCONFIRMED"}`,
+      `- Additional context: ${state.additionalContext || "None added yet"}`,
+    ].join("\n");
+
+    return {
+      title,
+      summarySentence,
+      outcomeSentence,
+      scope,
+      estimate,
+      systemsLine,
+      proposalLine,
+      risks,
+      recommendation,
+      plainText,
+    };
+  };
+
+  const updateIssueLink = (title, body) => {
+    const issueTitle = encodeURIComponent(`[Project Inquiry] ${title}`);
+    const issueBody = encodeURIComponent(body);
+    issueLink.href = `https://github.com/jakubgoscinny-creator/jakubgoscinny-creator.github.io/issues/new?title=${issueTitle}&body=${issueBody}`;
+  };
+
+  const renderSummary = () => {
+    const state = getState();
+    const summary = summarize(state);
+
+    output.innerHTML = `
+      <section class="summary-block">
+        <strong>Summary</strong>
+        <p>${escapeHtml(summary.summarySentence)}</p>
+        <p>${escapeHtml(summary.outcomeSentence)}</p>
+      </section>
+      <section class="summary-block">
+        <strong>Scope</strong>
+        <ul>${summary.scope.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
+      </section>
+      <section class="summary-block">
+        <strong>Estimate</strong>
+        <ul>
+          <li>${escapeHtml(summary.estimate.timeline)}</li>
+          <li>${escapeHtml(summary.estimate.budget)}</li>
+          <li>${escapeHtml(summary.systemsLine)}</li>
+        </ul>
+      </section>
+      <section class="summary-block">
+        <strong>Risks / confirmations</strong>
+        <ul>${summary.risks.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
+      </section>
+    `;
+
+    recommendationNode.textContent = summary.recommendation;
+    copyButton.dataset.brief = summary.plainText;
+    updateIssueLink(summary.title, summary.plainText);
+  };
+
+  const updateWizardStep = () => {
+    steps.forEach((step, index) => {
+      step.classList.toggle("is-active", index === currentStep);
+    });
+
+    stepLabels.forEach((stepLabel, index) => {
+      stepLabel.classList.toggle("is-active", index === currentStep);
+    });
+
+    backButton.disabled = currentStep === 0;
+    nextButton.textContent = currentStep === steps.length - 1 ? "Brief ready" : "Next step";
+  };
+
+  wizardForm.addEventListener("input", renderSummary);
+  wizardForm.addEventListener("change", renderSummary);
+
+  backButton.addEventListener("click", () => {
+    currentStep = Math.max(0, currentStep - 1);
+    updateWizardStep();
   });
 
-  const sorters = {
-    decision: (a, b) => a.decisionRank - b.decisionRank || a.pricePln - b.pricePln,
-    price: (a, b) => a.pricePln - b.pricePln || a.decisionRank - b.decisionRank,
-    location: (a, b) => b.locationScore - a.locationScore || a.decisionRank - b.decisionRank,
-    value: (a, b) => b.valueScore - a.valueScore || a.decisionRank - b.decisionRank
-  };
-
-  return visible.sort(sorters[state.sort]);
-}
-
-function renderOfferLinks(stay, tableMode = false) {
-  const links = [];
-
-  if (stay.bookingUrl) {
-    links.push(
-      `<a class="offer-link offer-link--booking${tableMode ? " offer-link--table" : ""}" href="${stay.bookingUrl}" target="_blank" rel="noreferrer">Booking.com</a>`
-    );
-  }
-
-  if (stay.directUrl) {
-    links.push(
-      `<a class="offer-link offer-link--direct${tableMode ? " offer-link--table" : ""}" href="${stay.directUrl}" target="_blank" rel="noreferrer">Direct page</a>`
-    );
-  }
-
-  if (!links.length) {
-    return `<span class="offer-link offer-link--muted${tableMode ? " offer-link--table" : ""}">No live link</span>`;
-  }
-
-  return `
-    <div class="offer-links${tableMode ? " offer-links--table" : ""}">
-      ${links.join("")}
-      ${stay.linkNote ? `<small class="offer-note">${stay.linkNote}</small>` : ""}
-    </div>
-  `;
-}
-
-function updateDecision(primary) {
-  const heroDecisionPill = document.querySelector("#heroDecisionPill");
-  const heroDecisionHeading = document.querySelector("#heroDecisionHeading");
-  const heroDecisionText = document.querySelector("#heroDecisionText");
-  const heroTake = document.querySelector("#heroTake");
-  const heroSupport = document.querySelector("#heroSupport");
-  const metricBestOption = document.querySelector("#metricBestOption");
-  const metricSpaceGain = document.querySelector("#metricSpaceGain");
-  const metricBudgetDelta = document.querySelector("#metricBudgetDelta");
-  const decisionBadge = document.querySelector("#decisionBadge");
-  const decisionTitle = document.querySelector("#decisionTitle");
-  const decisionReason = document.querySelector("#decisionReason");
-  const whySwitch = document.querySelector("#whySwitch");
-  const whyKeep = document.querySelector("#whyKeep");
-  const extraNight = document.querySelector("#extraNight");
-
-  if (!primary) {
-    heroDecisionPill.textContent = "Keep";
-    decisionBadge.textContent = "Keep";
-    heroDecisionHeading.textContent = "Keep the current booking unless a stronger live match appears.";
-    heroDecisionText.textContent =
-      "The active filters remove the strongest alternatives, so the booked stay remains the safest move.";
-    heroTake.textContent = "Keep the current booking";
-    heroSupport.textContent =
-      "No visible live offer is clearly stronger once the current filters are applied.";
-    metricBestOption.textContent = "Current booking";
-    metricSpaceGain.textContent = "0 m2";
-    metricBudgetDelta.textContent = "0 PLN";
-    decisionTitle.textContent = "Keep unless a better-value 50+ m2 option appears live.";
-    decisionReason.textContent =
-      "With no stronger shortlist items visible, keeping the booked stay avoids churn and protects the preferred zone.";
-    whySwitch.textContent =
-      "A switch only makes sense when Amy gains meaningful family space in a better walking location.";
-    whyKeep.textContent =
-      "The current booking is already confirmed and now has a Booking.com benchmark link as well.";
-    extraNight.textContent =
-      "Use the current booking as the cost anchor until a larger central option appears on a live page.";
-    return;
-  }
-
-  const spaceGain = primary.size - currentStay.size;
-  const budgetDelta = primary.pricePln - currentStay.pricePln;
-  const nightlyEstimate = Math.round(primary.pricePln / 3);
-
-  heroDecisionPill.textContent = primary.betterThanCurrent ? "Switch" : "Keep";
-  decisionBadge.textContent = primary.betterThanCurrent ? "Switch" : "Keep";
-  heroDecisionHeading.textContent = primary.betterThanCurrent
-    ? "The best switch now has stronger booking proof."
-    : "The visible live offers are useful, but not strong enough to beat the current booking.";
-  heroDecisionText.textContent = primary.betterThanCurrent
-    ? `${primary.name} adds ${spaceGain} m2 and still screens ${formatSignedPln(budgetDelta)} against the current total. Amy can verify it through Booking.com as well as the direct page.`
-    : `${primary.name} is worth opening, but it does not improve the family trade-off enough to justify the change.`;
-  heroTake.textContent = primary.betterThanCurrent
-    ? `Switch if ${primary.name} still clears Booking.com or the direct page live`
-    : "Keep unless a sharper-value central apartment appears";
-  heroSupport.textContent = primary.betterThanCurrent
-    ? "The upside is not just space. The booking handoff is cleaner now."
-    : "The current booking still wins on certainty and risk control.";
-  metricBestOption.textContent = primary.name;
-  metricSpaceGain.textContent = `${spaceGain > 0 ? "+" : ""}${spaceGain} m2`;
-  metricBudgetDelta.textContent = formatSignedPln(budgetDelta);
-  decisionTitle.textContent = primary.betterThanCurrent
-    ? `Switch if ${primary.name} or a very similar live old-town offer is still bookable.`
-    : "Keep the current booking unless a larger central unit appears live under budget.";
-  decisionReason.textContent = primary.betterThanCurrent
-    ? `${primary.name} is the clearest switch because Amy gets ${spaceGain} extra m2, a more practical family layout, and a faster live handoff into Booking.com or the direct supplier page.`
-    : "The visible alternatives either weaken the location logic, offer too little extra space, or rely on a weaker value case than the current booking.";
-  whySwitch.textContent = primary.betterThanCurrent
-    ? "Amy gets a real family-space upgrade and two clearer routes to check the listing before cancelling."
-    : "Switching only pays off when it improves comfort, location logic, and booking confidence.";
-  whyKeep.textContent =
-    "If the live July rate jumps materially above the screening number, the certainty of the booked stay becomes the better move.";
-  extraNight.textContent =
-    `Use about ${formatPln(nightlyEstimate)} as the first-pass extra-night screen, then confirm the exact July 2026 total on the live listing.`;
-}
-
-function renderRanking(visibleAlternatives) {
-  const topThree = visibleAlternatives.slice(0, 3);
-
-  if (!topThree.length) {
-    rankingList.innerHTML =
-      "<div class='ranking-item'><small>No shortlist</small><strong>Current booking wins under the active filters.</strong></div>";
-    return;
-  }
-
-  rankingList.innerHTML = topThree
-    .map((stay, index) => {
-      return `
-        <article class="ranking-item">
-          <small>#${index + 1} recommendation</small>
-          <strong>${stay.name}</strong>
-          <p>${stay.notes}</p>
-          <div class="ranking-meta">
-            <span class="score-chip">${formatPln(stay.pricePln)}</span>
-            <span class="score-chip">${stay.size} m2</span>
-            <span class="score-chip">Location ${stay.locationScore}/5</span>
-            <span class="status-chip ${verdictClass(stay.verdict)}">${stay.verdict}</span>
-          </div>
-          <div class="ranking-actions">
-            ${renderOfferLinks(stay)}
-          </div>
-        </article>
-      `;
-    })
-    .join("");
-}
-
-function renderComparison(rows) {
-  comparisonCount.textContent = `Showing ${rows.length} option${rows.length === 1 ? "" : "s"}`;
-
-  comparisonBody.innerHTML = rows
-    .map((stay) => {
-      const comfortLabel = stay.sleepsComfortably ? "Yes" : "No";
-      const comfortClass = stay.sleepsComfortably ? "is-yes" : "is-no";
-      const rowClasses = [stay.isCurrent ? "is-current" : "", stay.betterThanCurrent ? "is-better" : ""]
-        .filter(Boolean)
-        .join(" ");
-
-      return `
-        <tr class="${rowClasses}">
-          <td class="property-cell">
-            <strong>${stay.name}</strong>
-            <span>${stay.isCurrent ? "Current benchmark" : "Live market option"}</span>
-          </td>
-          <td>${stay.area}</td>
-          <td class="table-price">
-            <strong>${formatPln(stay.pricePln)}</strong>
-            <small>${stay.priceType}</small>
-          </td>
-          <td>${stay.size}</td>
-          <td class="comfort-cell ${comfortClass}">
-            ${comfortLabel}
-            <span>${stay.sleepsComfortably ? "Works for 4 people" : "Too tight for 3-4 nights"}</span>
-          </td>
-          <td><span class="score-value">${stay.locationScore}</span>/5</td>
-          <td><span class="score-value">${stay.valueScore}</span>/5</td>
-          <td class="table-note">${stay.notes}</td>
-          <td class="table-offer">${renderOfferLinks(stay, true)}</td>
-          <td><span class="table-badge ${verdictClass(stay.verdict)}">${stay.verdict}</span></td>
-        </tr>
-      `;
-    })
-    .join("");
-}
-
-function renderCards(visibleAlternatives) {
-  const cardPool = visibleAlternatives
-    .slice()
-    .sort((a, b) => a.cardRank - b.cardRank)
-    .slice(0, 5);
-
-  cardsGrid.innerHTML = cardPool
-    .map((stay) => {
-      return `
-        <article class="card-item">
-          <img src="${stay.image}" alt="${stay.name}">
-          <div class="card-body">
-            <span class="card-meta">${stay.area}</span>
-            <h3>${stay.name}</h3>
-            <p>${stay.notes}</p>
-            <div class="card-highlights">
-              ${stay.highlights.map((item) => `<span>${item}</span>`).join("")}
-            </div>
-            <div class="card-why">
-              <span class="card-meta">Why it is better or not</span>
-              <p>${stay.whyCard}</p>
-            </div>
-            <div class="card-actions">
-              ${renderOfferLinks(stay)}
-            </div>
-          </div>
-        </article>
-      `;
-    })
-    .join("");
-}
-
-function renderInsights() {
-  const alternatives = stays.filter((stay) => !stay.isCurrent);
-  const betterOptions = alternatives.filter((stay) => stay.betterThanCurrent);
-  const cheapestComfortable = alternatives
-    .filter((stay) => stay.sleepsComfortably)
-    .sort((a, b) => a.pricePln - b.pricePln)[0];
-  const locationPremium = alternatives
-    .filter((stay) => stay.bestLocation && stay.pricePln <= currentStay.pricePln)
-    .sort((a, b) => a.decisionRank - b.decisionRank)[0];
-  const budgetFallback = alternatives.find((stay) => stay.id === "bohaterow-suite");
-
-  const comfortablePrices = alternatives
-    .filter((stay) => stay.sleepsComfortably)
-    .map((stay) => stay.pricePln)
-    .sort((a, b) => a - b);
-  const medianComfortable = comfortablePrices[Math.floor(comfortablePrices.length / 2)];
-  const extraAboveMedian = currentStay.pricePln - medianComfortable;
-
-  const insightCards = [
-    {
-      label: "You are not overpaying, but...",
-      title: "Amy is paying central-money for one of the smallest layouts in the whole set.",
-      text: `The current booking is ${formatSignedPln(extraAboveMedian)} versus the median screened family option, but the bigger issue is space: 31 m2 is the least forgiving plan for a 4-person stay.`
-    },
-    {
-      label: "Best upgrade path",
-      title: betterOptions[0].name,
-      text: `${betterOptions[0].notes} It is the cleanest move because Amy gets a meaningful family-space upgrade and stronger booking proof through two channels.`
-    },
-    {
-      label: "Best budget downgrade",
-      title: budgetFallback.name,
-      text: `${budgetFallback.notes} Use it only if spend becomes the priority and central walkability stops mattering.`
-    },
-    {
-      label: "Best location premium",
-      title: locationPremium.name,
-      text: `${locationPremium.notes} This is the most atmospheric live alternative that still screens below the current confirmed total.`
-    },
-    {
-      label: "Best pure value",
-      title: cheapestComfortable.name,
-      text: `${cheapestComfortable.notes} It is the cheapest family-fit live page to open first if Amy wants the strongest value screen.`
+  nextButton.addEventListener("click", () => {
+    if (currentStep < steps.length - 1) {
+      currentStep += 1;
+      updateWizardStep();
+      return;
     }
-  ];
 
-  insightsGrid.innerHTML = insightCards
-    .map((insight) => {
-      return `
-        <article class="insight-card">
-          <span class="insight-label">${insight.label}</span>
-          <h3>${insight.title}</h3>
-          <p>${insight.text}</p>
-        </article>
-      `;
-    })
-    .join("");
+    document.querySelector(".brief-summary")?.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+    });
+  });
+
+  copyButton.addEventListener("click", async () => {
+    const brief = copyButton.dataset.brief || "";
+
+    if (!brief) {
+      return;
+    }
+
+    await navigator.clipboard.writeText(brief);
+    const previousLabel = copyButton.textContent;
+    copyButton.textContent = "Copied brief";
+
+    window.setTimeout(() => {
+      copyButton.textContent = previousLabel;
+    }, 1600);
+  });
+
+  updateWizardStep();
+  renderSummary();
 }
-
-function render() {
-  const state = getState();
-  const visibleAlternatives = getVisibleAlternatives(state);
-  const visibleRows = [currentStay, ...visibleAlternatives];
-  const primary = visibleAlternatives[0];
-
-  updateDecision(primary);
-  renderRanking(visibleAlternatives);
-  renderComparison(visibleRows);
-  renderCards(visibleAlternatives);
-}
-
-[sortBy, betterOnly, kidsOnly, locationOnly].forEach((input) => {
-  input.addEventListener("change", render);
-});
-
-renderInsights();
-render();
